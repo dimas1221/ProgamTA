@@ -64,6 +64,14 @@ if (isset($_POST['submit'])) {
                                 $ipk ='';
                                 $sks ='';
                                 $mkAgama ='';
+                                $mkBindo= '';
+                                $mkKwn= '';
+                                $mkBing1='';
+                                $mkBing2='';
+                                $mkapti1='';
+                                $mkapti2='';
+                                $mkKwu='';
+                                $mkPK='';
                                 // regex ipk
                                 if(preg_match("/(IPK(\s|):(\s|)(3.)[0-9]{0,2})|(IPK(\s|):(\s|)(2.)[5-9]{1,2})
                                 |(IPK(\s|):(\s|)(4.)[0]{1,2})/imx", $pdfText)){
@@ -81,15 +89,80 @@ if (isset($_POST['submit'])) {
                                 }else{
                                     $sks = 'bi bi-x-circle-fill text-danger';
                                 }
+                                // MINIMAL C
                                 // regex matkul agama
-                                if(preg_match("/(Agama(\s|)islam(\s|)2(\s|)[1-8](\s|)[0-9]{0,2}(\s|)[A-C])/imx", $pdfText)){
+                                if(preg_match("/(Agama(\s|)islam(\s|)2(\s|)[1-8](\s|)[0-9]{0,3}(\s|)[A-C|a-c])/imx", $pdfText)){
                                     $mkAgama = 'bi bi-check-circle-fill text-success';
                                 }else if($pdfText == ''){
                                     $mkAgama ='';
                                 }else{
                                     $mkAgama ='bi bi-x-circle-fill text-danger';
                                 }
-
+                                // regex bhs indo
+                                if(preg_match("/(Bahasa(\s|)Indonesia(\s|)2(\s|)[1-8](\s|)[0-9]{0,3}(\s|)[A-C|a-c])/mix", $pdfText)){
+                                    $mkBindo ='bi bi-check-circle-fill text-success';
+                                }else if($pdfText == ''){
+                                    $mkBindo ='';
+                                }else{
+                                    $mkBindo ='bi bi-x-circle-fill text-danger';
+                                }
+                                // regex kwn
+                                if(preg_match("/(Kewarganegaraan(\s|)2(\s|)[1-8](\s|)[0-9]{0,3}(\s|)[A-C|a-c])/mix", $pdfText)){
+                                    $mkKwn ='bi bi-check-circle-fill text-success';
+                                }else if($pdfText == ''){
+                                    $mkKwn ='';
+                                }else{
+                                    $mkKwn ='bi bi-x-circle-fill text-danger';
+                                }
+                                // Mtkul minimal B
+                                // Bhs inggris1
+                                if(preg_match("/(Bahasa(\s|)inggris(\s|)I(\s|)[(]Integrated[)](\s|)2(\s|)[1-8](\s|)[0-9]{0,3}(\s|)[A-B|a-b])/mix", $pdfText)){
+                                    $mkBing1 ='bi bi-check-circle-fill text-success';
+                                }else if($pdfText == ''){
+                                    $mkBing1 ='';
+                                }else{
+                                    $mkBing1 ='bi bi-x-circle-fill text-danger';
+                                }
+                                // Bhs inggris2
+                                if(preg_match("/(Bahasa(\s|)inggris(\s|)II(\s|)[(]Communicative[)](\s|)2(\s|)[1-8](\s|)[0-9]{0,3}(\s|)[A-B|a-b])/mix", $pdfText)){
+                                    $mkBing2 ='bi bi-check-circle-fill text-success';
+                                }else if($pdfText == ''){
+                                    $mkBing2 ='';
+                                }else{
+                                    $mkBing2 ='bi bi-x-circle-fill text-danger';
+                                }
+                                // Apti 1
+                                if(preg_match("/(Aplikasi(\s|)T(\s|)eknologi(\s|)Informasi(\s|)I(\s|)2(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|)[A-B|a-b])/mix", $pdfText)){
+                                    $mkapti1 ='bi bi-check-circle-fill text-success';
+                                }else if($pdfText == ''){
+                                    $mkapti1 ='';
+                                }else{
+                                    $mkapti1 ='bi bi-x-circle-fill text-danger';
+                                }
+                                // Apti 2
+                                if(preg_match("/(Aplikasi(\s|)T(\s|)eknologi(\s|)Informasi(\s|)II(\s|)2(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|)[A-B|a-b])/mix", $pdfText)){
+                                    $mkapti2 ='bi bi-check-circle-fill text-success';
+                                }else if($pdfText == ''){
+                                    $mkapti2 ='';
+                                }else{
+                                    $mkapti2 ='bi bi-x-circle-fill text-danger';
+                                }
+                                // KWU
+                                if(preg_match("/(Kewirausahaan(\s|)2(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|)[A-B|a-b])/mix", $pdfText)){
+                                    $mkKwu ='bi bi-check-circle-fill text-success';
+                                }else if($pdfText == ''){
+                                    $mkKwu ='';
+                                }else{
+                                    $mkKwu ='bi bi-x-circle-fill text-danger';
+                                }
+                                // PK
+                                if(preg_match("/(Pengembangan(\s|)Kepribadian(\s|)2(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|)[A-B|a-b])/mixD", $pdfText)){
+                                    $mkPK ='bi bi-check-circle-fill text-success';
+                                }else if($pdfText == ''){
+                                    $mkPK ='';
+                                }else{
+                                    $mkPK ='bi bi-x-circle-fill text-danger';
+                                }
                                 // membuat regex presentasi nilai d
                                 ?>
                             </div>
@@ -108,10 +181,20 @@ if (isset($_POST['submit'])) {
                         <div class="container">
                              <div class="row justify-content-center">
                                 <div class="col">
+                                    <h6 class="text-info">Aspek yang di lihat :</h6>
                                     <p><i class="<?=$ipk ?>"></i> ipk</p>
                                     <p><i class="<?=$sks ?>"></i> total sks</p>
-                                    <h6 class="text-info">mk wajib minimal C</h6>
-                                    <p><i class="<?=$mkAgama ?>"></i> mk agama</p>
+                                    <p class="text-info">Mk wajib minimal C</p>
+                                    <p><i class="<?=$mkAgama ?>"></i> Agama</p>
+                                    <p><i class="<?=$mkBindo ?>"></i> Bahasa Indonesia</p>
+                                    <p><i class="<?=$mkKwn ?>"></i> Kewarganegaaan</p>
+                                    <p class="text-info">Mk wajib minimal B</p>
+                                    <p><i class="<?=$mkBing1 ?>"></i> Bahasa Inggris I(Integrated)</p>
+                                    <p><i class="<?=$mkBing2 ?>"></i> Bahasa Inggris II(Communicative)</p>
+                                    <p><i class="<?=$mkapti1 ?>"></i> Aplikasi Teknologi Informasi I</p>
+                                    <p><i class="<?=$mkapti2 ?>"></i> Aplikasi Teknologi Informasi II</p>
+                                    <p><i class="<?=$mkKwu ?>"></i> Kewirausahaan</p>
+                                    <p><i class="<?=$mkPK ?>"></i> Pengembangan Kepribadian</p>
                                 </div>
                              </div>
                         </div>
