@@ -59,7 +59,61 @@ if (isset($_POST['submit'])) {
                                 </form>
                                 <hr>
                                 <?= $pdfText; ?>
+                                <?php
+                               
+                                $ipk ='';
+                                $sks ='';
+                                $mkAgama ='';
+                                // regex ipk
+                                if(preg_match("/(IPK(\s|):(\s|)(3.)[0-9]{0,2})|(IPK(\s|):(\s|)(2.)[5-9]{1,2})
+                                |(IPK(\s|):(\s|)(4.)[0]{1,2})/imx", $pdfText)){
+                                    $ipk ='bi bi-check-circle-fill text-success';
+                                }else if($pdfText == ''){
+                                    $ipk ='';
+                                }else{
+                                    $ipk = 'bi bi-x-circle-fill text-danger';
+                                }
+                                // regex sks
+                                if(preg_match("/Total(\s|)SKS(\s|):(\s|)((13)[8-9])|Total(\s|)SKS(\s|):(\s|)((14)[0-9])/mix", $pdfText)){
+                                    $sks ='bi bi-check-circle-fill text-success';
+                                }else if($pdfText == ''){
+                                    $sks ='';
+                                }else{
+                                    $sks = 'bi bi-x-circle-fill text-danger';
+                                }
+                                // regex matkul agama
+                                if(preg_match("/(Agama(\s|)islam(\s|)2(\s|)[1-8](\s|)[0-9]{0,2}(\s|)[A-C])/imx", $pdfText)){
+                                    $mkAgama = 'bi bi-check-circle-fill text-success';
+                                }else if($pdfText == ''){
+                                    $mkAgama ='';
+                                }else{
+                                    $mkAgama ='bi bi-x-circle-fill text-danger';
+                                }
+
+                                // membuat regex presentasi nilai d
+                                ?>
                             </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                    <hr>
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col">
+                                    <h2>Hasil Validasi</h2>
+                                </div>
+                            </div>
+                        </div>
+                    <hr>
+                        <div class="container">
+                             <div class="row justify-content-center">
+                                <div class="col">
+                                    <p><i class="<?=$ipk ?>"></i> ipk</p>
+                                    <p><i class="<?=$sks ?>"></i> total sks</p>
+                                    <h6 class="text-info">mk wajib minimal C</h6>
+                                    <p><i class="<?=$mkAgama ?>"></i> mk agama</p>
+                                </div>
+                             </div>
                         </div>
                     </div>
                 </div>
