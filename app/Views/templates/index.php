@@ -16,6 +16,7 @@
     <!-- Template CSS -->
     <link rel="stylesheet" href="<?= base_url(); ?>/temp/assets/css/style.css">
     <link rel="stylesheet" href="<?= base_url(); ?>/temp/assets/css/components.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>/temp/assets/css/custom.css">
 </head>
 
 <body>

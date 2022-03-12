@@ -1,5 +1,6 @@
 <?= $this->extend('templates/index'); ?>
 <?= $this->section('page-content'); ?>
+<!-- extrack pdf -->
 <?php
 $pdfText = '';
 if (isset($_POST['submit'])) {
@@ -51,18 +52,29 @@ if (isset($_POST['submit'])) {
                         <div class="card">
                             <div class="card-body">
                                 <form action="" method="post" enctype="multipart/form-data">
-                                    <div class="form-input">
-                                        <label for="pdf_file">PDF File</label>
-                                        <input type="file" name="pdf_file" placeholder="Select a PDF file" required class="form-control mb-3">
+                                    <div class="form-input upload">
+                                        <i class="bi bi-cloud-upload-fill text-info" style="font-size: 50px;"></i>
+                                        <button class="btn btn-info ab">Upload file
+                                        <input type="file" name="pdf_file" required >
+                                        </button>
                                     </div>
                                     <input type="submit" name="submit" class="btn btn-success mb-3" value="Extract Text">
                                 </form>
+                                <!-- <script>
+                                    const form = document.querySelector("form"),
+                                    fileInput = form.querySelector(".file-input");
+
+                                    form.addEventListener("click", ()=>{
+                                        fileInput.click();
+                                    });
+                                </script> -->
                                 <hr>
                                 <?= $pdfText; ?>
                                 <?php
-                               
+                                // varibel validasi
                                 $ipk ='';
                                 $sks ='';
+                                $kp='';
                                 $mkAgama ='';
                                 $mkBindo= '';
                                 $mkKwn= '';
@@ -72,6 +84,7 @@ if (isset($_POST['submit'])) {
                                 $mkapti2='';
                                 $mkKwu='';
                                 $mkPK='';
+                                $setik='';
                                 // regex ipk
                                 if(preg_match("/(IPK(\s|):(\s|)(3.)[0-9]{0,2})|(IPK(\s|):(\s|)(2.)[5-9]{1,2})
                                 |(IPK(\s|):(\s|)(4.)[0]{1,2})/imx", $pdfText)){
@@ -89,9 +102,25 @@ if (isset($_POST['submit'])) {
                                 }else{
                                     $sks = 'bi bi-x-circle-fill text-danger';
                                 }
+                                // regex KP
+                                if(preg_match("/(Kerja(\s|)Praktik(\s|)3(\s|)[0-9]{0,2}(\s|)(\s|)(\d|){0,3}[A-B|a-b])/mix", $pdfText)){
+                                    $kp ='bi bi-check-circle-fill text-success';
+                                }else if($pdfText == ''){
+                                    $kp ='';
+                                }else{
+                                    $kp = 'bi bi-x-circle-fill text-danger';
+                                }
+                                // regex setik
+                                if(preg_match("/(Seminar(\s|)T(\s|)ematik(\s|)2(\s|)(\d|){0,2}(\s|)(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)){
+                                    $setik ='bi bi-check-circle-fill text-success';
+                                }else if($pdfText == ''){
+                                    $setik ='';
+                                }else{
+                                    $setik = 'bi bi-x-circle-fill text-danger';
+                                }
                                 // MINIMAL C
                                 // regex matkul agama
-                                if(preg_match("/(Agama(\s|)islam(\s|)2(\s|)[1-8](\s|)[0-9]{0,3}(\s|)[A-C|a-c])/imx", $pdfText)){
+                                if(preg_match("/(Agama(\s|)islam(\s|)2(\s|)(\d|){0,2}(\s|)[0-9]{0,3}(\s|)[A-C|a-c])/imx", $pdfText)){
                                     $mkAgama = 'bi bi-check-circle-fill text-success';
                                 }else if($pdfText == ''){
                                     $mkAgama ='';
@@ -99,7 +128,7 @@ if (isset($_POST['submit'])) {
                                     $mkAgama ='bi bi-x-circle-fill text-danger';
                                 }
                                 // regex bhs indo
-                                if(preg_match("/(Bahasa(\s|)Indonesia(\s|)2(\s|)[1-8](\s|)[0-9]{0,3}(\s|)[A-C|a-c])/mix", $pdfText)){
+                                if(preg_match("/(Bahasa(\s|)Indonesia(\s|)2(\s|)(\d|){0,2}(\s|)[0-9]{0,3}(\s|)[A-C|a-c])/mix", $pdfText)){
                                     $mkBindo ='bi bi-check-circle-fill text-success';
                                 }else if($pdfText == ''){
                                     $mkBindo ='';
@@ -107,7 +136,7 @@ if (isset($_POST['submit'])) {
                                     $mkBindo ='bi bi-x-circle-fill text-danger';
                                 }
                                 // regex kwn
-                                if(preg_match("/(Kewarganegaraan(\s|)2(\s|)[1-8](\s|)[0-9]{0,3}(\s|)[A-C|a-c])/mix", $pdfText)){
+                                if(preg_match("/(Kewarganegaraan(\s|)2(\s|)(\d|){0,2}(\s|)[0-9]{0,3}(\s|)[A-C|a-c])/mix", $pdfText)){
                                     $mkKwn ='bi bi-check-circle-fill text-success';
                                 }else if($pdfText == ''){
                                     $mkKwn ='';
@@ -116,7 +145,7 @@ if (isset($_POST['submit'])) {
                                 }
                                 // Mtkul minimal B
                                 // Bhs inggris1
-                                if(preg_match("/(Bahasa(\s|)inggris(\s|)I(\s|)[(]Integrated[)](\s|)2(\s|)[1-8](\s|)[0-9]{0,3}(\s|)[A-B|a-b])/mix", $pdfText)){
+                                if(preg_match("/(Bahasa(\s|)inggris(\s|)I(\s|)[(]Integrated[)](\s|)2(\s|)(\d|){0,2}(\s|)[0-9]{0,3}(\s|)[A-B|a-b])/mix", $pdfText)){
                                     $mkBing1 ='bi bi-check-circle-fill text-success';
                                 }else if($pdfText == ''){
                                     $mkBing1 ='';
@@ -124,7 +153,7 @@ if (isset($_POST['submit'])) {
                                     $mkBing1 ='bi bi-x-circle-fill text-danger';
                                 }
                                 // Bhs inggris2
-                                if(preg_match("/(Bahasa(\s|)inggris(\s|)II(\s|)[(]Communicative[)](\s|)2(\s|)[1-8](\s|)[0-9]{0,3}(\s|)[A-B|a-b])/mix", $pdfText)){
+                                if(preg_match("/(Bahasa(\s|)inggris(\s|)II(\s|)[(]Communicative[)](\s|)2(\s|)(\d|){0,2}(\s|)[0-9]{0,3}(\s|)[A-B|a-b])/mix", $pdfText)){
                                     $mkBing2 ='bi bi-check-circle-fill text-success';
                                 }else if($pdfText == ''){
                                     $mkBing2 ='';
@@ -173,7 +202,7 @@ if (isset($_POST['submit'])) {
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col">
-                                    <h2>Hasil Validasi</h2>
+                                    <h5 class="text-success">Hasil Validasi</h5>
                                 </div>
                             </div>
                         </div>
@@ -181,9 +210,11 @@ if (isset($_POST['submit'])) {
                         <div class="container">
                              <div class="row justify-content-center">
                                 <div class="col">
-                                    <h6 class="text-info">Aspek yang di lihat :</h6>
-                                    <p><i class="<?=$ipk ?>"></i> ipk</p>
-                                    <p><i class="<?=$sks ?>"></i> total sks</p>
+                                    <p class="text-info">Aspek yang di lihat</p>
+                                    <p><i class="<?=$ipk ?>"></i> Index Prestasi Kumulatif(IPK)</p>
+                                    <p><i class="<?=$sks ?>"></i> Total Sks</p>
+                                    <p><i class="<?=$kp ?>"></i> Kerja Praktik</p>
+                                    <p><i class="<?=$setik ?>"></i> Seminar Tematik</p>
                                     <p class="text-info">Mk wajib minimal C</p>
                                     <p><i class="<?=$mkAgama ?>"></i> Agama</p>
                                     <p><i class="<?=$mkBindo ?>"></i> Bahasa Indonesia</p>
