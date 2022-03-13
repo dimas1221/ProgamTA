@@ -114,7 +114,7 @@ if (isset($_POST['submit'])) {
                                 }
                                 // MINIMAL C
                                 // regex matkul agama
-                                if (preg_match("/(Agama(\s|)islam(\s|)2(\s|)(\d|){0,2}(\s|)[0-9]{0,3}(\s|)[A-C|a-c])/imx", $pdfText)) {
+                                if (preg_match("/(Agama(\s|)islam(\s|)2(\s|)(\d|){0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-C|a-c])/imx", $pdfText)) {
                                     $mkAgama = 'bi bi-check-circle-fill text-success';
                                 } else if ($pdfText == '') {
                                     $mkAgama = '';
@@ -122,7 +122,7 @@ if (isset($_POST['submit'])) {
                                     $mkAgama = 'bi bi-x-circle-fill text-danger';
                                 }
                                 // regex bhs indo
-                                if (preg_match("/(Bahasa(\s|)Indonesia(\s|)2(\s|)(\d|){0,2}(\s|)[0-9]{0,3}(\s|)[A-C|a-c])/mix", $pdfText)) {
+                                if (preg_match("/(Bahasa(\s|)Indonesia(\s|)2(\s|)(\d|){0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-C|a-c])/mix", $pdfText)) {
                                     $mkBindo = 'bi bi-check-circle-fill text-success';
                                 } else if ($pdfText == '') {
                                     $mkBindo = '';
@@ -130,7 +130,7 @@ if (isset($_POST['submit'])) {
                                     $mkBindo = 'bi bi-x-circle-fill text-danger';
                                 }
                                 // regex kwn
-                                if (preg_match("/(Kewarganegaraan(\s|)2(\s|)(\d|){0,2}(\s|)[0-9]{0,3}(\s|)[A-C|a-c])/mix", $pdfText)) {
+                                if (preg_match("/(Kewarganegaraan(\s|)2(\s|)(\d|){0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-C|a-c])/mix", $pdfText)) {
                                     $mkKwn = 'bi bi-check-circle-fill text-success';
                                 } else if ($pdfText == '') {
                                     $mkKwn = '';
@@ -139,7 +139,7 @@ if (isset($_POST['submit'])) {
                                 }
                                 // Mtkul minimal B
                                 // Bhs inggris1
-                                if (preg_match("/(Bahasa(\s|)inggris(\s|)I(\s|)[(]Integrated[)](\s|)2(\s|)(\d|){0,2}(\s|)[0-9]{0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
+                                if (preg_match("/(Bahasa(\s|)inggris(\s|)I(\s|)[(]Integrated[)](\s|)2(\s|)(\d|){0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
                                     $mkBing1 = 'bi bi-check-circle-fill text-success';
                                 } else if ($pdfText == '') {
                                     $mkBing1 = '';
@@ -147,7 +147,7 @@ if (isset($_POST['submit'])) {
                                     $mkBing1 = 'bi bi-x-circle-fill text-danger';
                                 }
                                 // Bhs inggris2
-                                if (preg_match("/(Bahasa(\s|)inggris(\s|)II(\s|)[(]Communicative[)](\s|)2(\s|)(\d|){0,2}(\s|)[0-9]{0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
+                                if (preg_match("/(Bahasa(\s|)inggris(\s|)II(\s|)[(]Communicative[)](\s|)2(\s|)(\d|){0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
                                     $mkBing2 = 'bi bi-check-circle-fill text-success';
                                 } else if ($pdfText == '') {
                                     $mkBing2 = '';
@@ -155,7 +155,7 @@ if (isset($_POST['submit'])) {
                                     $mkBing2 = 'bi bi-x-circle-fill text-danger';
                                 }
                                 // Apti 1
-                                if (preg_match("/(Aplikasi(\s|)T(\s|)eknologi(\s|)Informasi(\s|)I(\s|)2(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
+                                if (preg_match("/(Aplikasi(\s|)T(\s|)eknologi(\s|)Informasi(\s|)I(\s|)2(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
                                     $mkapti1 = 'bi bi-check-circle-fill text-success';
                                 } else if ($pdfText == '') {
                                     $mkapti1 = '';
@@ -163,7 +163,7 @@ if (isset($_POST['submit'])) {
                                     $mkapti1 = 'bi bi-x-circle-fill text-danger';
                                 }
                                 // Apti 2
-                                if (preg_match("/(Aplikasi(\s|)T(\s|)eknologi(\s|)Informasi(\s|)II(\s|)2(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
+                                if (preg_match("/(Aplikasi(\s|)T(\s|)eknologi(\s|)Informasi(\s|)II(\s|)2(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
                                     $mkapti2 = 'bi bi-check-circle-fill text-success';
                                 } else if ($pdfText == '') {
                                     $mkapti2 = '';
@@ -171,7 +171,7 @@ if (isset($_POST['submit'])) {
                                     $mkapti2 = 'bi bi-x-circle-fill text-danger';
                                 }
                                 // KWU
-                                if (preg_match("/(Kewirausahaan(\s|)2(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
+                                if (preg_match("/(Kewirausahaan(\s|)2(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
                                     $mkKwu = 'bi bi-check-circle-fill text-success';
                                 } else if ($pdfText == '') {
                                     $mkKwu = '';
@@ -179,7 +179,7 @@ if (isset($_POST['submit'])) {
                                     $mkKwu = 'bi bi-x-circle-fill text-danger';
                                 }
                                 // PK
-                                if (preg_match("/(Pengembangan(\s|)Kepribadian(\s|)2(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|)[A-B|a-b])/mixD", $pdfText)) {
+                                if (preg_match("/(Pengembangan(\s|)Kepribadian(\s|)2(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-B|a-b])/mixD", $pdfText)) {
                                     $mkPK = 'bi bi-check-circle-fill text-success';
                                 } else if ($pdfText == '') {
                                     $mkPK = '';
@@ -191,8 +191,39 @@ if (isset($_POST['submit'])) {
                                 $alpro;
                                 $dw;
                                 $logicInf;
+                                $pti;
+                                $sbd;
+                                $so;
+                                $statistik;
+                                $strukturData;
+                                $tbo;
+                                $ajbrLMtrk;
+                                $aok;
+                                $jarkom;
+                                $pbo;
+                                $pw;
+                                $mtkDiskrit;
+                                $mpa;
+                                $sbdl;
+                                $scr;
+                                $si;
+                                $tbo;
+                                $mppl;
+                                $pemjar;
+                                $pml;
+                                $pi;
+                                $rekWeb;
+                                $ro;
+                                $bigData;
+                                $iot;
+                                $pmlLanjut;
+                                $spk;
+                                $webRes;
+                                $di;
+                                $ep;
+                                // $kwu;
                                 // nilai alpro
-                                if (preg_match("/(Algoritma(\s|)dan(\s|)Pemrograman(\s|)3(\s|)(\d|){0,2}(\s|)(\d|){0,3}(\s|)D)/mix", $pdfText)) {
+                                if (preg_match("/(Algoritma(\s|)dan(\s|)Pemrograman(\s|)3(\s|)(\d|){0,2}(\s|)(\d|){0,3}(\s|).(\d|){0,3}(\s|)D)/mix", $pdfText)) {
                                     $alpro = 3;
                                 } else if ($pdfText == '') {
                                     $alpro = 0;
@@ -200,7 +231,7 @@ if (isset($_POST['submit'])) {
                                     $alpro = 0;
                                 }
                                 //nillai d dw
-                                if (preg_match("/(Desain(\s|)W(\s|)eb(\s|)3(\s|)(\d|){0,2}(\s|)(\d|){0,3}(\s|)D)/mix", $pdfText)) {
+                                if (preg_match("/(Desain(\s|)W(\s|)eb(\s|)3(\s|)(\d|){0,2}(\s|)(\d|){0,3}(\s|).(\d|){0,3}(\s|)D)/mix", $pdfText)) {
                                     $dw = 3;
                                 } else if ($pdfText == '') {
                                     $dw = 0;
@@ -208,19 +239,214 @@ if (isset($_POST['submit'])) {
                                     $dw = 0;
                                 }
                                 //nillai logic info
-                                if (preg_match("/(Logika(\s|)Informatika(\s|)3(\s|)(\d|){0,2}(\s|)(\d|){0,3}(\s|)D)/mix", $pdfText)) {
+                                if (preg_match("/(Logika(\s|)Informatika(\s|)3(\s|)(\d|){0,2}(\s|)(\d|){0,3}(\s|).(\d|){0,3}(\s|)D)/mix", $pdfText)) {
                                     $logicInf = 3;
                                 } else if ($pdfText == '') {
                                     $logicInf = 0;
                                 } else {
                                     $logicInf = 0;
                                 }
+                                //nillai PTI
+                                if (preg_match("/(Pengantar(\s|)T(\s|)eknologi(\s|)Informasi(\s|)2(\s|)(\d|){0,2}(\s|)(\d|){0,3}(\s|).(\d|){0,3}(\s|)D)/mix", $pdfText)) {
+                                    $pti = 2;
+                                } else if ($pdfText == '') {
+                                    $pti = 0;
+                                } else {
+                                    $pti = 0;
+                                }
+                                //nillai SBD
+                                if (preg_match("/(Sistem(\s|)Basis(\s|)Data(\s|)3(\s|)(\d|){0,2}(\s|)(\d|){0,3}(\s|).(\d|){0,3}(\s|)D)/mix", $pdfText)) {
+                                    $sbd = 3;
+                                } else if ($pdfText == '') {
+                                    $sbd = 0;
+                                } else {
+                                    $sbd = 0;
+                                }
+                                //nillai So
+                                if (preg_match("/(Sistem(\s|)Operasi(\s|)3(\s|)(\d|){0,2}(\s|)(\d|){0,3}(\s|).(\d|){0,3}(\s|)D)/mix", $pdfText)) {
+                                    $so = 3;
+                                } else if ($pdfText == '') {
+                                    $so = 0;
+                                } else {
+                                    $so = 0;
+                                }
+                                //nillai Statistik
+                                if (preg_match("/(Statistika(\s|)3(\s|)(\d|){0,2}(\s|)(\d|){0,3}(\s|).(\d|){0,3}(\s|)D)/mix", $pdfText)) {
+                                    $statistik = 3;
+                                } else {
+                                    $statistik = 0;
+                                }
+                                //nillai Struktur data
+                                if (preg_match("/(Struktur(\s|)Data(\s|)3(\s|)(\d|){0,2}(\s|)(\d|){0,3}(\s|).(\d|){0,3}(\s|)D)/mix", $pdfText)) {
+                                    $strukturData = 3;
+                                } else {
+                                    $strukturData = 0;
+                                }
+                                //nillai TBO
+                                if (preg_match("/(Teknologi(\s|)Berbasis(\s|)Objek(\s|)3(\s|)(\d|){0,2}(\s|)(\d|){0,3}(\s|).(\d|){0,3}(\s|)D)/mix", $pdfText)) {
+                                    $tbo = 3;
+                                } else {
+                                    $tbo = 0;
+                                }
+                                //nillai Aljabar linear
+                                if (preg_match("/(Aljabar (\s|)Linier(\s|)dan(\s|)Matriks(\s|)3(\s|)(\d|){0,2}(\s|)(\d|){0,3}(\s|).(\d|){0,3}(\s|)D)/mix", $pdfText)) {
+                                    $ajbrLMtrk = 3;
+                                } else {
+                                    $ajbrLMtrk = 0;
+                                }
+                                //nillai Arsitektur Komputer
+                                if (preg_match("/(Arsitektur(\s|)dan(\s|)Organisasi(\s|)Komputer(\s|)2(\s|)(\d|){0,2}(\s|)(\d|){0,3}(\s|).(\d|){0,3}(\s|)D)/mix", $pdfText)) {
+                                    $aok = 2;
+                                } else {
+                                    $aok = 0;
+                                }
+                                //nillai Jarkom
+                                if (preg_match("/(Jaringan(\s|)Komputer(\s|)3(\s|)(\d|){0,2}(\s|)(\d|){0,3}(\s|).(\d|){0,3}(\s|)D)/mix", $pdfText)) {
+                                    $jarkom = 3;
+                                } else {
+                                    $jarkom = 0;
+                                }
+                                //nillai PBO
+                                if (preg_match("/(Pemrograman(\s|)Berorientasi(\s|)Objek(\s|)3(\s|)(\d|){0,2}(\s|)(\d|){0,3}(\s|).(\d|){0,3}(\s|)D)/mix", $pdfText)) {
+                                    $pbo = 3;
+                                } else {
+                                    $pbo = 0;
+                                }
+                                //nillai Pemrogaman web
+                                if (preg_match("/(Pemrograman(\s|)W(\s|)eb(\s|)3(\s|)(\d|){0,2}(\s|)(\d|){0,3}(\s|).(\d|){0,3}(\s|)D)/mix", $pdfText)) {
+                                    $pw = 3;
+                                } else {
+                                    $pw = 0;
+                                }
+                                //nillai mtk diskrit
+                                if (preg_match("/(Matematika(\s|)Diskrit(\s|)3(\s|)(\d|){0,2}(\s|)(\d|){0,3}(\s|).(\d|){0,3}(\s|)D)/mix", $pdfText)) {
+                                    $mtkDiskrit = 3;
+                                } else {
+                                    $mtkDiskrit = 0;
+                                }
+                                //nillai mpa
+                                if (preg_match("/(Metodologi(\s|)Pengembangan(\s|)Aplikasi(\s|)3(\s|)(\d|){0,2}(\s|)(\d|){0,3}(\s|).(\d|){0,3}(\s|)D)/mix", $pdfText)) {
+                                    $mpa = 3;
+                                } else {
+                                    $mpa = 0;
+                                }
+                                //nillai sbdl
+                                if (preg_match("/(Sistem(\s|)Basis(\s|)Data(\s|)Lanjut(\s|)3(\s|)(\d|){0,2}(\s|)(\d|){0,3}(\s|).(\d|){0,3}(\s|)D)/mix", $pdfText)) {
+                                    $sbdl = 3;
+                                } else {
+                                    $sbdl = 0;
+                                }
+                                //nillai scr
+                                if (preg_match("/(Sistem(\s|)Cerdas(\s|)3(\s|)(\d|){0,2}(\s|)(\d|){0,3}(\s|).(\d|){0,3}(\s|)D)/mix", $pdfText)) {
+                                    $scr = 3;
+                                } else {
+                                    $scr = 0;
+                                }
+                                //nillai si
+                                if (preg_match("/(Sistem(\s|)Informasi(\s|)3(\s|)(\d|){0,2}(\s|)(\d|){0,3}.(\d|){0,3}(\s|)D)/mix", $pdfText)) {
+                                    $si = 3;
+                                } else {
+                                    $si = 0;
+                                }
+                                //nillai tbo
+                                if (preg_match("/(Teori(\s|)Bahasa(\s|)Otomata(\s|)3(\s|)(\d|){0,2}(\s|)(\d|){0,3}.(\d|){0,3}(\s|)D)/mix", $pdfText)) {
+                                    $tbo = 3;
+                                } else {
+                                    $tbo = 0;
+                                }
+                                //nillai mpppl
+                                if (preg_match("/(Manajemen(\s|)Proyek(\s|)Perangkat(\s|)Lunak(\s|)2(\s|)(\d|){0,2}(\s|)(\d|){0,3}.(\d|){0,3}(\s|)D)/mix", $pdfText)) {
+                                    $mppl = 2;
+                                } else {
+                                    $mppl = 0;
+                                }
+                                //nillai pemjar
+                                if (preg_match("/(Pemrograman(\s|)Jaringan(\s|)3(\s|)(\d|){0,2}(\s|)(\d|){0,3}.(\d|){0,3}(\s|)D)/mix", $pdfText)) {
+                                    $pemjar = 3;
+                                } else {
+                                    $pemjar = 0;
+                                }
+                                //nillai pml
+                                if (preg_match("/(Pemrograman(\s|)Mobile(\s|)3(\s|)(\d|){0,2}(\s|)(\d|){0,3}.(\d|){0,3}(\s|)D)/mix", $pdfText)) {
+                                    $pml = 3;
+                                } else {
+                                    $pml = 0;
+                                }
+                                //nillai pi
+                                if (preg_match("/(Penelitian(\s|)Informatika(\s|)2(\s|)(\d|){0,2}(\s|)(\d|){0,3}.(\d|){0,3}(\s|)D)/mix", $pdfText)) {
+                                    $pi = 2;
+                                } else {
+                                    $pi = 0;
+                                }
+                                //nillai rekWeb
+                                if (preg_match("/(Rekayasa(\s|)W(\s|)eb(\s|)3(\s|)(\d|){0,2}(\s|)(\d|){0,3}.(\d|){0,3}(\s|)D)/mix", $pdfText)) {
+                                    $rekWeb = 3;
+                                } else {
+                                    $rekWeb = 0;
+                                }
+                                //nillai ro
+                                if (preg_match("/(Riset(\s|)Operasi(\s|)3(\s|)(\d|){0,2}(\s|)(\d|){0,3}.(\d|){0,3}(\s|)D)/mix", $pdfText)) {
+                                    $ro = 3;
+                                } else {
+                                    $ro = 0;
+                                }
+                                //nillai bigData
+                                if (preg_match("/(Big(\s|)Data(\s|)dan(\s|)Data(\s|)Mining(\s|)3(\s|)(\d|){0,2}(\s|)(\d|){0,3}.(\d|){0,3}(\s|)D)/mix", $pdfText)) {
+                                    $bigData = 3;
+                                } else {
+                                    $bigData = 0;
+                                }
+                                //nillai iot
+                                if (preg_match("/(Internet(\s|)Of(\s|)Things(\s|)3(\s|)(\d|){0,2}(\s|)(\d|){0,3}.(\d|){0,3}(\s|)D)/mix", $pdfText)) {
+                                    $iot = 3;
+                                } else {
+                                    $iot = 0;
+                                }
+                                //nillai pmlLanjut
+                                if (preg_match("/(Pemrograman(\s|)Mobile(\s|)Lanjut(\s|)3(\s|)(\d|){0,2}(\s|)(\d|){0,3}.(\d|){0,3}(\s|)D)/mix", $pdfText)) {
+                                    $pmlLanjut = 3;
+                                } else {
+                                    $pmlLanjut = 0;
+                                }
+                                //nillai spk
+                                if (preg_match("/(Sistem(\s|)Pendukung(\s|)Keputusan(\s|)3(\s|)(\d|){0,2}(\s|)(\d|){0,3}.(\d|){0,3}(\s|)D)/mix", $pdfText)) {
+                                    $spk = 3;
+                                } else {
+                                    $spk = 0;
+                                }
+                                //nillai webRes
+                                if (preg_match("/(Web(\s|)Responsive(\s|)3(\s|)(\d|){0,2}(\s|)(\d|){0,3}.(\d|){0,3}(\s|)D)/mix", $pdfText)) {
+                                    $webRes = 3;
+                                } else {
+                                    $webRes = 0;
+                                }
+                                //nillai di
+                                if (preg_match("/(Desain(\s|)Interface(\s|)3(\s|)(\d|){0,2}(\s|)(\d|){0,3}.(\d|){0,3}(\s|)D)/mix", $pdfText)) {
+                                    $di = 3;
+                                } else {
+                                    $di = 0;
+                                }
+                                //nillai ep
+                                if (preg_match("/(Etika(\s|)Profesi(\s|)2(\s|)(\d|){0,2}(\s|)(\d|){0,3}.(\d|){0,3}(\s|)D)/mix", $pdfText)) {
+                                    $ep = 2;
+                                } else {
+                                    $ep = 0;
+                                }
+                                //nillai kwu
+                                // if (preg_match("/(Kewirausahaan(\s|)2(\s|)(\d|){0,2}(\s|)(\d|){0,3}.(\d|){0,3}(\s|)D)/mix", $pdfText)) {
+                                //     $kwu = 2;
+                                // } else {
+                                //     $kwu = 0;
+                                // }
                                 //hasil jumlah nilai d
                                 $hasilD;
                                 if ($pdfText == '') {
                                     $hasilD = null;
                                 } else {
-                                    $hasilD = $alpro + $dw + $logicInf;
+                                    $hasilD = $alpro + $dw + $logicInf + $pti + $sbd + $so + $statistik + $strukturData + $tbo +
+                                        $ajbrLMtrk + $aok + $jarkom + $pbo + $pw + $mtkDiskrit + $mpa + $sbdl + $scr + $si + $tbo
+                                        + $mppl + $pemjar + $pml + $pi + $rekWeb + $ro + $bigData + $iot + $pmlLanjut + $spk + $webRes
+                                        + $di + $ep;
                                 }
                                 // seleksi presentase D
                                 $presentaseD = '';
