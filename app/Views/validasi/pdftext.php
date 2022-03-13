@@ -55,179 +55,230 @@ if (isset($_POST['submit'])) {
                                     <div class="form-input upload">
                                         <i class="bi bi-cloud-upload-fill text-info" style="font-size: 50px;"></i>
                                         <button class="btn btn-info ab">Upload file
-                                        <input type="file" name="pdf_file" required >
+                                            <input type="file" name="pdf_file" onchange="prevImg()" id="in" required>
                                         </button>
+                                        <label for="pdf_file" class="label" style="font-size: medium;"></label>
                                     </div>
                                     <input type="submit" name="submit" class="btn btn-success mb-3" value="Extract Text">
                                 </form>
-                                <!-- <script>
-                                    const form = document.querySelector("form"),
-                                    fileInput = form.querySelector(".file-input");
 
-                                    form.addEventListener("click", ()=>{
-                                        fileInput.click();
-                                    });
-                                </script> -->
                                 <hr>
                                 <?= $pdfText; ?>
                                 <?php
                                 // varibel validasi
-                                $ipk ='';
-                                $sks ='';
-                                $kp='';
-                                $mkAgama ='';
-                                $mkBindo= '';
-                                $mkKwn= '';
-                                $mkBing1='';
-                                $mkBing2='';
-                                $mkapti1='';
-                                $mkapti2='';
-                                $mkKwu='';
-                                $mkPK='';
-                                $setik='';
+                                $ipk = '';
+                                $sks = '';
+                                $kp = '';
+                                $mkAgama = '';
+                                $mkBindo = '';
+                                $mkKwn = '';
+                                $mkBing1 = '';
+                                $mkBing2 = '';
+                                $mkapti1 = '';
+                                $mkapti2 = '';
+                                $mkKwu = '';
+                                $mkPK = '';
+                                $setik = '';
                                 // regex ipk
-                                if(preg_match("/(IPK(\s|):(\s|)(3.)[0-9]{0,2})|(IPK(\s|):(\s|)(2.)[5-9]{1,2})
-                                |(IPK(\s|):(\s|)(4.)[0]{1,2})/imx", $pdfText)){
-                                    $ipk ='bi bi-check-circle-fill text-success';
-                                }else if($pdfText == ''){
-                                    $ipk ='';
-                                }else{
+                                if (preg_match("/(IPK(\s|):(\s|)(3.)[0-9]{0,2})|(IPK(\s|):(\s|)(2.)[5-9]{1,2})
+                                |(IPK(\s|):(\s|)(4.)[0]{1,2})/imx", $pdfText)) {
+                                    $ipk = 'bi bi-check-circle-fill text-success';
+                                } else if ($pdfText == '') {
+                                    $ipk = '';
+                                } else {
                                     $ipk = 'bi bi-x-circle-fill text-danger';
                                 }
                                 // regex sks
-                                if(preg_match("/Total(\s|)SKS(\s|):(\s|)((13)[8-9])|Total(\s|)SKS(\s|):(\s|)((14)[0-9])/mix", $pdfText)){
-                                    $sks ='bi bi-check-circle-fill text-success';
-                                }else if($pdfText == ''){
-                                    $sks ='';
-                                }else{
+                                if (preg_match("/Total(\s|)SKS(\s|):(\s|)((13)[8-9])|Total(\s|)SKS(\s|):(\s|)((14)[0-9])/mix", $pdfText)) {
+                                    $sks = 'bi bi-check-circle-fill text-success';
+                                } else if ($pdfText == '') {
+                                    $sks = '';
+                                } else {
                                     $sks = 'bi bi-x-circle-fill text-danger';
                                 }
                                 // regex KP
-                                if(preg_match("/(Kerja(\s|)Praktik(\s|)3(\s|)[0-9]{0,2}(\s|)(\s|)(\d|){0,3}[A-B|a-b])/mix", $pdfText)){
-                                    $kp ='bi bi-check-circle-fill text-success';
-                                }else if($pdfText == ''){
-                                    $kp ='';
-                                }else{
+                                if (preg_match("/(Kerja(\s|)Praktik(\s|)3(\s|)[0-9]{0,2}(\s|)(\s|)(\d|){0,3}[A-B|a-b])/mix", $pdfText)) {
+                                    $kp = 'bi bi-check-circle-fill text-success';
+                                } else if ($pdfText == '') {
+                                    $kp = '';
+                                } else {
                                     $kp = 'bi bi-x-circle-fill text-danger';
                                 }
                                 // regex setik
-                                if(preg_match("/(Seminar(\s|)T(\s|)ematik(\s|)2(\s|)(\d|){0,2}(\s|)(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)){
-                                    $setik ='bi bi-check-circle-fill text-success';
-                                }else if($pdfText == ''){
-                                    $setik ='';
-                                }else{
+                                if (preg_match("/(Seminar(\s|)T(\s|)ematik(\s|)2(\s|)(\d|){0,2}(\s|)(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
+                                    $setik = 'bi bi-check-circle-fill text-success';
+                                } else if ($pdfText == '') {
+                                    $setik = '';
+                                } else {
                                     $setik = 'bi bi-x-circle-fill text-danger';
                                 }
                                 // MINIMAL C
                                 // regex matkul agama
-                                if(preg_match("/(Agama(\s|)islam(\s|)2(\s|)(\d|){0,2}(\s|)[0-9]{0,3}(\s|)[A-C|a-c])/imx", $pdfText)){
+                                if (preg_match("/(Agama(\s|)islam(\s|)2(\s|)(\d|){0,2}(\s|)[0-9]{0,3}(\s|)[A-C|a-c])/imx", $pdfText)) {
                                     $mkAgama = 'bi bi-check-circle-fill text-success';
-                                }else if($pdfText == ''){
-                                    $mkAgama ='';
-                                }else{
-                                    $mkAgama ='bi bi-x-circle-fill text-danger';
+                                } else if ($pdfText == '') {
+                                    $mkAgama = '';
+                                } else {
+                                    $mkAgama = 'bi bi-x-circle-fill text-danger';
                                 }
                                 // regex bhs indo
-                                if(preg_match("/(Bahasa(\s|)Indonesia(\s|)2(\s|)(\d|){0,2}(\s|)[0-9]{0,3}(\s|)[A-C|a-c])/mix", $pdfText)){
-                                    $mkBindo ='bi bi-check-circle-fill text-success';
-                                }else if($pdfText == ''){
-                                    $mkBindo ='';
-                                }else{
-                                    $mkBindo ='bi bi-x-circle-fill text-danger';
+                                if (preg_match("/(Bahasa(\s|)Indonesia(\s|)2(\s|)(\d|){0,2}(\s|)[0-9]{0,3}(\s|)[A-C|a-c])/mix", $pdfText)) {
+                                    $mkBindo = 'bi bi-check-circle-fill text-success';
+                                } else if ($pdfText == '') {
+                                    $mkBindo = '';
+                                } else {
+                                    $mkBindo = 'bi bi-x-circle-fill text-danger';
                                 }
                                 // regex kwn
-                                if(preg_match("/(Kewarganegaraan(\s|)2(\s|)(\d|){0,2}(\s|)[0-9]{0,3}(\s|)[A-C|a-c])/mix", $pdfText)){
-                                    $mkKwn ='bi bi-check-circle-fill text-success';
-                                }else if($pdfText == ''){
-                                    $mkKwn ='';
-                                }else{
-                                    $mkKwn ='bi bi-x-circle-fill text-danger';
+                                if (preg_match("/(Kewarganegaraan(\s|)2(\s|)(\d|){0,2}(\s|)[0-9]{0,3}(\s|)[A-C|a-c])/mix", $pdfText)) {
+                                    $mkKwn = 'bi bi-check-circle-fill text-success';
+                                } else if ($pdfText == '') {
+                                    $mkKwn = '';
+                                } else {
+                                    $mkKwn = 'bi bi-x-circle-fill text-danger';
                                 }
                                 // Mtkul minimal B
                                 // Bhs inggris1
-                                if(preg_match("/(Bahasa(\s|)inggris(\s|)I(\s|)[(]Integrated[)](\s|)2(\s|)(\d|){0,2}(\s|)[0-9]{0,3}(\s|)[A-B|a-b])/mix", $pdfText)){
-                                    $mkBing1 ='bi bi-check-circle-fill text-success';
-                                }else if($pdfText == ''){
-                                    $mkBing1 ='';
-                                }else{
-                                    $mkBing1 ='bi bi-x-circle-fill text-danger';
+                                if (preg_match("/(Bahasa(\s|)inggris(\s|)I(\s|)[(]Integrated[)](\s|)2(\s|)(\d|){0,2}(\s|)[0-9]{0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
+                                    $mkBing1 = 'bi bi-check-circle-fill text-success';
+                                } else if ($pdfText == '') {
+                                    $mkBing1 = '';
+                                } else {
+                                    $mkBing1 = 'bi bi-x-circle-fill text-danger';
                                 }
                                 // Bhs inggris2
-                                if(preg_match("/(Bahasa(\s|)inggris(\s|)II(\s|)[(]Communicative[)](\s|)2(\s|)(\d|){0,2}(\s|)[0-9]{0,3}(\s|)[A-B|a-b])/mix", $pdfText)){
-                                    $mkBing2 ='bi bi-check-circle-fill text-success';
-                                }else if($pdfText == ''){
-                                    $mkBing2 ='';
-                                }else{
-                                    $mkBing2 ='bi bi-x-circle-fill text-danger';
+                                if (preg_match("/(Bahasa(\s|)inggris(\s|)II(\s|)[(]Communicative[)](\s|)2(\s|)(\d|){0,2}(\s|)[0-9]{0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
+                                    $mkBing2 = 'bi bi-check-circle-fill text-success';
+                                } else if ($pdfText == '') {
+                                    $mkBing2 = '';
+                                } else {
+                                    $mkBing2 = 'bi bi-x-circle-fill text-danger';
                                 }
                                 // Apti 1
-                                if(preg_match("/(Aplikasi(\s|)T(\s|)eknologi(\s|)Informasi(\s|)I(\s|)2(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|)[A-B|a-b])/mix", $pdfText)){
-                                    $mkapti1 ='bi bi-check-circle-fill text-success';
-                                }else if($pdfText == ''){
-                                    $mkapti1 ='';
-                                }else{
-                                    $mkapti1 ='bi bi-x-circle-fill text-danger';
+                                if (preg_match("/(Aplikasi(\s|)T(\s|)eknologi(\s|)Informasi(\s|)I(\s|)2(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
+                                    $mkapti1 = 'bi bi-check-circle-fill text-success';
+                                } else if ($pdfText == '') {
+                                    $mkapti1 = '';
+                                } else {
+                                    $mkapti1 = 'bi bi-x-circle-fill text-danger';
                                 }
                                 // Apti 2
-                                if(preg_match("/(Aplikasi(\s|)T(\s|)eknologi(\s|)Informasi(\s|)II(\s|)2(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|)[A-B|a-b])/mix", $pdfText)){
-                                    $mkapti2 ='bi bi-check-circle-fill text-success';
-                                }else if($pdfText == ''){
-                                    $mkapti2 ='';
-                                }else{
-                                    $mkapti2 ='bi bi-x-circle-fill text-danger';
+                                if (preg_match("/(Aplikasi(\s|)T(\s|)eknologi(\s|)Informasi(\s|)II(\s|)2(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
+                                    $mkapti2 = 'bi bi-check-circle-fill text-success';
+                                } else if ($pdfText == '') {
+                                    $mkapti2 = '';
+                                } else {
+                                    $mkapti2 = 'bi bi-x-circle-fill text-danger';
                                 }
                                 // KWU
-                                if(preg_match("/(Kewirausahaan(\s|)2(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|)[A-B|a-b])/mix", $pdfText)){
-                                    $mkKwu ='bi bi-check-circle-fill text-success';
-                                }else if($pdfText == ''){
-                                    $mkKwu ='';
-                                }else{
-                                    $mkKwu ='bi bi-x-circle-fill text-danger';
+                                if (preg_match("/(Kewirausahaan(\s|)2(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
+                                    $mkKwu = 'bi bi-check-circle-fill text-success';
+                                } else if ($pdfText == '') {
+                                    $mkKwu = '';
+                                } else {
+                                    $mkKwu = 'bi bi-x-circle-fill text-danger';
                                 }
                                 // PK
-                                if(preg_match("/(Pengembangan(\s|)Kepribadian(\s|)2(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|)[A-B|a-b])/mixD", $pdfText)){
-                                    $mkPK ='bi bi-check-circle-fill text-success';
-                                }else if($pdfText == ''){
-                                    $mkPK ='';
-                                }else{
-                                    $mkPK ='bi bi-x-circle-fill text-danger';
+                                if (preg_match("/(Pengembangan(\s|)Kepribadian(\s|)2(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|)[A-B|a-b])/mixD", $pdfText)) {
+                                    $mkPK = 'bi bi-check-circle-fill text-success';
+                                } else if ($pdfText == '') {
+                                    $mkPK = '';
+                                } else {
+                                    $mkPK = 'bi bi-x-circle-fill text-danger';
                                 }
                                 // membuat regex presentasi nilai d
+
+                                $alpro;
+                                $dw;
+                                $logicInf;
+                                // nilai alpro
+                                if (preg_match("/(Algoritma(\s|)dan(\s|)Pemrograman(\s|)3(\s|)(\d|){0,2}(\s|)(\d|){0,3}(\s|)D)/mix", $pdfText)) {
+                                    $alpro = 3;
+                                } else if ($pdfText == '') {
+                                    $alpro = 0;
+                                } else {
+                                    $alpro = 0;
+                                }
+                                //nillai d dw
+                                if (preg_match("/(Desain(\s|)W(\s|)eb(\s|)3(\s|)(\d|){0,2}(\s|)(\d|){0,3}(\s|)D)/mix", $pdfText)) {
+                                    $dw = 3;
+                                } else if ($pdfText == '') {
+                                    $dw = 0;
+                                } else {
+                                    $dw = 0;
+                                }
+                                //nillai logic info
+                                if (preg_match("/(Logika(\s|)Informatika(\s|)3(\s|)(\d|){0,2}(\s|)(\d|){0,3}(\s|)D)/mix", $pdfText)) {
+                                    $logicInf = 3;
+                                } else if ($pdfText == '') {
+                                    $logicInf = 0;
+                                } else {
+                                    $logicInf = 0;
+                                }
+                                //hasil jumlah nilai d
+                                $hasilD;
+                                if ($pdfText == '') {
+                                    $hasilD = null;
+                                } else {
+                                    $hasilD = $alpro + $dw + $logicInf;
+                                }
+                                // seleksi presentase D
+                                $presentaseD = '';
+                                if ($pdfText == '') {
+                                    $presentaseD = '';
+                                } elseif ($hasilD <= 14) {
+                                    $presentaseD = 'bi bi-check-circle-fill text-success';
+                                } else {
+                                    $presentaseD = 'bi bi-x-circle-fill text-danger';
+                                }
+                                // hasil validasi
+                                $hasilValidasi = '';
+
+                                if ($ipk && $sks && $kp && $setik == 'bi bi-check-circle-fill text-success') {
+                                    $hasilValidasi = 'lolos';
+                                } elseif ($pdfText == '') {
+                                    $hasilValidasi = '';
+                                } else {
+                                    $hasilValidasi = 'gagal';
+                                }
                                 ?>
                             </div>
                         </div>
                     </div>
                     <div class="col-4">
-                    <hr>
+                        <hr>
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col">
                                     <h5 class="text-success">Hasil Validasi</h5>
+                                    <h6><?= $hasilValidasi ?></h6>
                                 </div>
                             </div>
                         </div>
-                    <hr>
+                        <hr>
                         <div class="container">
-                             <div class="row justify-content-center">
+                            <div class="row justify-content-center">
                                 <div class="col">
                                     <p class="text-info">Aspek yang di lihat</p>
-                                    <p><i class="<?=$ipk ?>"></i> Index Prestasi Kumulatif(IPK)</p>
-                                    <p><i class="<?=$sks ?>"></i> Total Sks</p>
-                                    <p><i class="<?=$kp ?>"></i> Kerja Praktik</p>
-                                    <p><i class="<?=$setik ?>"></i> Seminar Tematik</p>
+                                    <p><i class="<?= $ipk ?>"></i> Index Prestasi Kumulatif(IPK)</p>
+                                    <p><i class="<?= $sks ?>"></i> Total Sks</p>
+                                    <p><i class="<?= $kp ?>"></i> Kerja Praktik</p>
+                                    <p><i class="<?= $setik ?>"></i> Seminar Tematik</p>
                                     <p class="text-info">Mk wajib minimal C</p>
-                                    <p><i class="<?=$mkAgama ?>"></i> Agama</p>
-                                    <p><i class="<?=$mkBindo ?>"></i> Bahasa Indonesia</p>
-                                    <p><i class="<?=$mkKwn ?>"></i> Kewarganegaaan</p>
+                                    <p><i class="<?= $mkAgama ?>"></i> Agama</p>
+                                    <p><i class="<?= $mkBindo ?>"></i> Bahasa Indonesia</p>
+                                    <p><i class="<?= $mkKwn ?>"></i> Kewarganegaaan</p>
                                     <p class="text-info">Mk wajib minimal B</p>
-                                    <p><i class="<?=$mkBing1 ?>"></i> Bahasa Inggris I(Integrated)</p>
-                                    <p><i class="<?=$mkBing2 ?>"></i> Bahasa Inggris II(Communicative)</p>
-                                    <p><i class="<?=$mkapti1 ?>"></i> Aplikasi Teknologi Informasi I</p>
-                                    <p><i class="<?=$mkapti2 ?>"></i> Aplikasi Teknologi Informasi II</p>
-                                    <p><i class="<?=$mkKwu ?>"></i> Kewirausahaan</p>
-                                    <p><i class="<?=$mkPK ?>"></i> Pengembangan Kepribadian</p>
+                                    <p><i class="<?= $mkBing1 ?>"></i> Bahasa Inggris I(Integrated)</p>
+                                    <p><i class="<?= $mkBing2 ?>"></i> Bahasa Inggris II(Communicative)</p>
+                                    <p><i class="<?= $mkapti1 ?>"></i> Aplikasi Teknologi Informasi I</p>
+                                    <p><i class="<?= $mkapti2 ?>"></i> Aplikasi Teknologi Informasi II</p>
+                                    <p><i class="<?= $mkKwu ?>"></i> Kewirausahaan</p>
+                                    <p><i class="<?= $mkPK ?>"></i> Pengembangan Kepribadian</p>
+                                    <p class="text-info">Total nilai D kurang dari 14 sks</p>
+                                    <p><i class="<?= $presentaseD ?>"></i> Total nilai D <?= $hasilD ?> SKS</p>
                                 </div>
-                             </div>
+                            </div>
                         </div>
                     </div>
                 </div>

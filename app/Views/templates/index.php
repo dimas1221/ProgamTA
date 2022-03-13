@@ -53,6 +53,25 @@
     <script src="<?= base_url(); ?>/temp/assets/js/custom.js"></script>
 
     <!-- Page Specific JS File -->
+
+    <!-- My javascript -->
+    <script>
+        function prevImg() {
+
+            const file = document.querySelector('#in');
+            const label = document.querySelector('.label');
+            // const imgPrev = document.querySelector('.img-preview');
+
+            label.textContent = file.files[0].name;
+
+            const fileFoto = new FileReader();
+            fileFoto.readAsDataURL(foto.files[0]);
+
+            // fileFoto.onload = function(e) {
+            //     imgPrev.src = e.target.result;
+            // }
+        }
+    </script>
 </body>
 
 </html>
