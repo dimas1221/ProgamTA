@@ -179,12 +179,95 @@ if (isset($_POST['submit'])) {
                                     $mkKwu = 'bi bi-x-circle-fill text-danger';
                                 }
                                 // PK
-                                if (preg_match("/(Pengembangan(\s|)Kepribadian(\s|)2(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-B|a-b])/mixD", $pdfText)) {
+                                if (preg_match("/(Pengembangan(\s|)Kepribadian(\s|)2(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
                                     $mkPK = 'bi bi-check-circle-fill text-success';
                                 } else if ($pdfText == '') {
                                     $mkPK = '';
                                 } else {
                                     $mkPK = 'bi bi-x-circle-fill text-danger';
+                                }
+                                // nilai praktik minimal B
+                                $dwPratik;
+                                $sbdPraktik;
+                                $soPraktik;
+                                $strukturDataPraktik;
+                                $jarkomPraktik;
+                                $pboPraktik;
+                                $pwPraktik;
+                                $sbdlPraktik;
+                                $pmPraktik;
+
+                                // dw praktik
+                                if (preg_match("/(Desain(\s|)Web(\s|)Praktikum(\s|)1(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
+                                    $dwPratik = 'bi bi-check-circle-fill text-success';
+                                } else if ($pdfText == '') {
+                                    $dwPratik = '';
+                                } else {
+                                    $dwPratik = 'bi bi-x-circle-fill text-danger';
+                                }
+                                // SBD praktik
+                                if (preg_match("/(Sistem(\s|)Basis(\s|)Data(\s|)Praktikum(\s|)1(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
+                                    $sbdPraktik = 'bi bi-check-circle-fill text-success';
+                                } else if ($pdfText == '') {
+                                    $sbdPraktik = '';
+                                } else {
+                                    $sbdPraktik = 'bi bi-x-circle-fill text-danger';
+                                }
+                                // So praktik
+                                if (preg_match("/(Sistem(\s|)Operasi(\s|)Praktikum(\s|)1(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
+                                    $soPraktik = 'bi bi-check-circle-fill text-success';
+                                } else if ($pdfText == '') {
+                                    $soPraktik = '';
+                                } else {
+                                    $soPraktik = 'bi bi-x-circle-fill text-danger';
+                                }
+                                // Struktur data praktik
+                                if (preg_match("/(Struktur(\s|)Data(\s|)Praktikum(\s|)1(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
+                                    $strukturDataPraktik = 'bi bi-check-circle-fill text-success';
+                                } else if ($pdfText == '') {
+                                    $strukturDataPraktik = '';
+                                } else {
+                                    $strukturDataPraktik = 'bi bi-x-circle-fill text-danger';
+                                }
+                                // Jarkom praktik
+                                if (preg_match("/(Jaringan(\s|)Komputer(\s|)Praktikum(\s|)1(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
+                                    $jarkomPraktik = 'bi bi-check-circle-fill text-success';
+                                } else if ($pdfText == '') {
+                                    $jarkomPraktik = '';
+                                } else {
+                                    $jarkomPraktik = 'bi bi-x-circle-fill text-danger';
+                                }
+                                // PBO praktik
+                                if (preg_match("/(Pemrograman(\s|)Berorientasi(\s|)Objek(\s|)Praktikum(\s|)1(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
+                                    $pboPraktik = 'bi bi-check-circle-fill text-success';
+                                } else if ($pdfText == '') {
+                                    $pboPraktik = '';
+                                } else {
+                                    $pboPraktik = 'bi bi-x-circle-fill text-danger';
+                                }
+                                // Pw praktik
+                                if (preg_match("/(Pemrograman(\s|)W(\s|)eb(\s|)Praktikum(\s|)2(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
+                                    $pwPraktik = 'bi bi-check-circle-fill text-success';
+                                } else if ($pdfText == '') {
+                                    $pwPraktik = '';
+                                } else {
+                                    $pwPraktik = 'bi bi-x-circle-fill text-danger';
+                                }
+                                // Sbdl praktik
+                                if (preg_match("/(Sistem(\s|)Basis(\s|)Data(\s|)Lanjut(\s|)Praktikum(\s|)1(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
+                                    $sbdlPraktik = 'bi bi-check-circle-fill text-success';
+                                } else if ($pdfText == '') {
+                                    $pwPraktik = '';
+                                } else {
+                                    $sbdlPraktik = 'bi bi-x-circle-fill text-danger';
+                                }
+                                // pm praktik
+                                if (preg_match("/(Pemrograman(\s|)Mobile(\s|)Praktikum(\s|)2(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
+                                    $pmPraktik = 'bi bi-check-circle-fill text-success';
+                                } else if ($pdfText == '') {
+                                    $pwPraktik = '';
+                                } else {
+                                    $pmPraktik = 'bi bi-x-circle-fill text-danger';
                                 }
                                 // membuat regex presentasi nilai d
 
@@ -438,6 +521,44 @@ if (isset($_POST['submit'])) {
                                 // } else {
                                 //     $kwu = 0;
                                 // }
+                                // peminatan scr
+                                $pcd;
+                                $softComput;
+                                $deepLearning;
+                                $fuzziLogic;
+                                $pengenalPola;
+
+                                // nilai pengolah citra digital
+                                if (preg_match("/(Pengolahan(\s|)Citra(\s|)Digital(\s|)3(\s|)(\d|){0,2}(\s|)(\d|){0,3}.(\d|){0,3}(\s|)D)/mix", $pdfText)) {
+                                    $pcd = 3;
+                                } else {
+                                    $pcd = 0;
+                                }
+                                // nilai soft computing
+                                if (preg_match("/(Soft(\s|)Computing(\s|)3(\s|)(\d|){0,2}(\s|)(\d|){0,3}.(\d|){0,3}(\s|)D)/mix", $pdfText)) {
+                                    $softComput = 3;
+                                } else {
+                                    $softComput = 0;
+                                }
+                                // nilai Deep learning
+                                if (preg_match("/(Deep(\s|)Learning(\s|)3(\s|)(\d|){0,2}(\s|)(\d|){0,3}.(\d|){0,3}(\s|)D)/mix", $pdfText)) {
+                                    $deepLearning = 3;
+                                } else {
+                                    $deepLearning = 0;
+                                }
+                                // nilai Fuzzi Logic
+                                if (preg_match("/(Fuzzy(\s|)Logic(\s|)3(\s|)(\d|){0,2}(\s|)(\d|){0,3}.(\d|){0,3}(\s|)D)/mix", $pdfText)) {
+                                    $fuzziLogic = 3;
+                                } else {
+                                    $fuzziLogic = 0;
+                                }
+                                // nilai Pengenal pola
+                                if (preg_match("/(Pengenalan(\s|)Pola(\s|)3(\s|)(\d|){0,2}(\s|)(\d|){0,3}.(\d|){0,3}(\s|)D)/mix", $pdfText)) {
+                                    $pengenalPola = 3;
+                                } else {
+                                    $pengenalPola = 0;
+                                }
+
                                 //hasil jumlah nilai d
                                 $hasilD;
                                 if ($pdfText == '') {
@@ -446,7 +567,7 @@ if (isset($_POST['submit'])) {
                                     $hasilD = $alpro + $dw + $logicInf + $pti + $sbd + $so + $statistik + $strukturData + $tbo +
                                         $ajbrLMtrk + $aok + $jarkom + $pbo + $pw + $mtkDiskrit + $mpa + $sbdl + $scr + $si + $tbo
                                         + $mppl + $pemjar + $pml + $pi + $rekWeb + $ro + $bigData + $iot + $pmlLanjut + $spk + $webRes
-                                        + $di + $ep;
+                                        + $di + $ep + $pcd + $softComput + $deepLearning + $fuzziLogic + $pengenalPola;
                                 }
                                 // seleksi presentase D
                                 $presentaseD = '';
@@ -501,7 +622,16 @@ if (isset($_POST['submit'])) {
                                     <p><i class="<?= $mkapti2 ?>"></i> Aplikasi Teknologi Informasi II</p>
                                     <p><i class="<?= $mkKwu ?>"></i> Kewirausahaan</p>
                                     <p><i class="<?= $mkPK ?>"></i> Pengembangan Kepribadian</p>
-                                    <p class="text-info">Total nilai D kurang dari 14 sks</p>
+                                    <p><i class="<?= $dwPratik ?>"></i> Desain Web Praktik</p>
+                                    <p><i class="<?= $sbdPraktik ?>"></i> Sistem Basis Data Praktik</p>
+                                    <p><i class="<?= $soPraktik ?>"></i> Sistem Operasi Praktik</p>
+                                    <p><i class="<?= $strukturDataPraktik ?>"></i> Struktur Data Praktik</p>
+                                    <p><i class="<?= $jarkomPraktik ?>"></i> Jaringan Komputer Praktik</p>
+                                    <p><i class="<?= $pboPraktik ?>"></i> PBO Praktik</p>
+                                    <p><i class="<?= $pwPraktik ?>"></i> Pemrograman Web Praktik</p>
+                                    <p><i class="<?= $sbdlPraktik ?>"></i> SBDL Praktik</p>
+                                    <p><i class="<?= $pmPraktik ?>"></i> Pemrograman Mobile Praktik</p>
+                                    <p class="text-info">Total nilai D maksimal 14 sks</p>
                                     <p><i class="<?= $presentaseD ?>"></i> Total nilai D <?= $hasilD ?> SKS</p>
                                 </div>
                             </div>
