@@ -53,13 +53,13 @@ if (isset($_POST['submit'])) {
                             <div class="card-body">
                                 <form action="" method="post" enctype="multipart/form-data">
                                     <div class="form-input upload">
-                                        <i class="bi bi-cloud-upload-fill text-info" style="font-size: 50px;"></i>
-                                        <button class="btn btn-info ab">Upload file
+                                        <i class="bi bi-cloud-upload-fill text-primary" style="font-size: 50px;"></i>
+                                        <button class="btn btn-primary ab">Upload file
                                             <input type="file" name="pdf_file" onchange="prevImg()" id="in" required>
                                         </button>
                                         <label for="pdf_file" class="label" style="font-size: medium;"></label>
                                     </div>
-                                    <input type="submit" name="submit" class="btn btn-success mb-3" value="Extract Text">
+                                    <input type="submit" name="submit" class="btn btn-success mb-3" value="Validasi">
                                 </form>
 
                                 <hr>
@@ -257,7 +257,7 @@ if (isset($_POST['submit'])) {
                                 if (preg_match("/(Sistem(\s|)Basis(\s|)Data(\s|)Lanjut(\s|)Praktikum(\s|)1(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
                                     $sbdlPraktik = 'bi bi-check-circle-fill text-success';
                                 } else if ($pdfText == '') {
-                                    $pwPraktik = '';
+                                    $sbdlPraktik = '';
                                 } else {
                                     $sbdlPraktik = 'bi bi-x-circle-fill text-danger';
                                 }
@@ -265,7 +265,7 @@ if (isset($_POST['submit'])) {
                                 if (preg_match("/(Pemrograman(\s|)Mobile(\s|)Praktikum(\s|)2(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
                                     $pmPraktik = 'bi bi-check-circle-fill text-success';
                                 } else if ($pdfText == '') {
-                                    $pwPraktik = '';
+                                    $pmPraktik = '';
                                 } else {
                                     $pmPraktik = 'bi bi-x-circle-fill text-danger';
                                 }
@@ -593,7 +593,27 @@ if (isset($_POST['submit'])) {
                         </div>
                     </div>
                     <div class="col-4">
-                        <hr>
+                        <form action="/validasi/save" method="POST" enctype="multipart/form-data">
+                            <?= csrf_field(); ?>
+                            <div class="mb-3">
+                                <label for="exampleInputName" class="form-label">Nama</label>
+                                <input type="text" name="nama_mahasiswa" class="form-control" id="exampleInputName" aria-describedby="emailHelp">
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleInputNim" class="form-label">Nim</label>
+                                <input type="text" name="nim_mahasiswa" class="form-control" id="exampleInputNim" aria-describedby="emailHelp">
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleInputProdi" class="form-label">Prodi</label>
+                                <input type="text" name="prodi" class="form-control" id="exampleInputProdi" aria-describedby="emailHelp" value="Informatika" readonly>
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleInputStatus" class="form-label">Status</label>
+                                <input type="text" name="hasil_validasi" class="form-control" id="exampleInputStatus" aria-describedby="emailHelp" value="<?= $hasilValidasi ?>" readonly>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </form>
+                        <!-- <hr>
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col">
@@ -601,14 +621,17 @@ if (isset($_POST['submit'])) {
                                     <h6><?= $hasilValidasi ?></h6>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <hr>
                         <div class="container">
-                            <div class="row justify-content-center">
+                            <div class="row justify-content-center scrollspy-example">
                                 <div class="col">
-                                    <p class="text-info">Aspek yang di lihat</p>
+                                    <h5 class="text-info">Aspek yang di lihat</h5>
+                                    <p class="text-info">IPK minimal 2.5</p>
                                     <p><i class="<?= $ipk ?>"></i> Index Prestasi Kumulatif(IPK)</p>
+                                    <p class="text-info">SKS yang di tempuh minimal 138</p>
                                     <p><i class="<?= $sks ?>"></i> Total Sks</p>
+                                    <p class="text-info">lulus MK KP dan Setik</p>
                                     <p><i class="<?= $kp ?>"></i> Kerja Praktik</p>
                                     <p><i class="<?= $setik ?>"></i> Seminar Tematik</p>
                                     <p class="text-info">Mk wajib minimal C</p>

@@ -33,7 +33,7 @@ class Validasi extends BaseController
             'title' => 'Form input data',
             'validation' => \Config\Services::validation()
         ];
-        return view('validasi/pengajuan_ta', $data);
+        return view('validasi/pdftext', $data);
     }
 
     // menyimpan data input khs
@@ -41,32 +41,41 @@ class Validasi extends BaseController
     {
         //validasi input
         if (!$this->validate([
-            'nama_mhs' =>  [
-                'rules' => 'required|is_unique[tb_mahasiswa.nama_mhs]'
+            'nama_mahasiswa' =>  [
+                'rules' => 'required|is_unique[tb_hasil_validasi.nama_mahasiswa]'
             ],
-            'khs' => [
-                'rules' => 'uploaded[khs]|max_size[khs,5024]|ext_in[khs,pdf]'
+            'nim_mahasiswa' =>  [
+                'rules' => 'required|is_unique[tb_hasil_validasi.nim_mahasiswa]'
+            ],
+            'hasil_validasi' =>  [
+                'rules' => 'required[tb_hasil_validasi.hasil_validasi]'
             ]
+            // 'khs' => [
+            //     'rules' => 'uploaded[khs]|max_size[khs,5024]|ext_in[khs,pdf]'
+            // ]
         ])) {
             // mengambil data hasil validasi field
             $validation = \Config\Services::validation();
-            return redirect()->to('/validasi/pengajuan_ta')->withInput();
+            return redirect()->to('/validasi/pdftext')->withInput();
         }
 
-        //ambil file
-        $filekhs = $this->request->getFile('khs');
-        //pindah file
-        $filekhs->move('fileKHS');
-        //ambil nama file
-        $namakhs = $filekhs->getName();
+        // //ambil file
+        // $filekhs = $this->request->getFile('khs');
+        // //pindah file
+        // $filekhs->move('fileKHS');
+        // //ambil nama file
+        // $namakhs = $filekhs->getName();
+
         // mengambil request apapun
         $this->validasiModel->save([
-            'nama_mhs' => $this->request->getVar('nama_mhs'),
-            'nim' => $this->request->getVar('nim'),
-            'khs' => $namakhs
+            'nama_mahasiswa' => $this->request->getVar('nama_mahasiswa'),
+            'nim_mahasiswa' => $this->request->getVar('nim_mahasiswa'),
+            'prodi' => $this->request->getVar('prodi'),
+            'hasil_validasi' => $this->request->getVar('hasil_validasi'),
+            // 'khs' => $namakhs
         ]);
 
-        return redirect()->to('/validasi/pengajuan_ta')->withInput();
+        return redirect()->to('/validasi/index')->withInput();
     }
 
     public function pdftext()

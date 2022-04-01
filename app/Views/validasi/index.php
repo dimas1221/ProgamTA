@@ -7,31 +7,33 @@
             <h1>list Mahasiswa</h1>
         </div>
         <div class="section-body">
-        <table class="table" style=" width: max-content;">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Nama</th>
-                    <th scope="col">Nim</th>
-                    <th scope="col">creted_at</th>
-                    <th scope="col">updated_at</th>
-                    <th scope="col">Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php $k = 1; ?>
-                <?php foreach ($viewvalidasi as $vv) : ?>
+            <table class="table" style=" width: max-content;">
+                <thead>
                     <tr>
-                        <td><?= $k++; ?></td>
-                        <td><?= $vv['nama_mhs']; ?></td>
-                        <td><?= $vv['nim']; ?></td>
-                        <td><?= $vv['created_at']; ?></td>
-                        <td><?= $vv['updated_at']; ?></td>
-                        <td><?= $vv['status_ta']; ?></td>
+                        <th scope="col">#</th>
+                        <th scope="col">Nama</th>
+                        <th scope="col">Nim</th>
+                        <th scope="col">creted_at</th>
+                        <th scope="col">updated_at</th>
+                        <th scope="col">Prodi</th>
+                        <th scope="col">Status</th>
                     </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    <?php $k = 1; ?>
+                    <?php foreach ($viewvalidasi as $vv) : ?>
+                        <tr>
+                            <td><?= $k++; ?></td>
+                            <td><?= $vv['nama_mahasiswa']; ?></td>
+                            <td><?= $vv['nim_mahasiswa']; ?></td>
+                            <td><?= $vv['created_at']; ?></td>
+                            <td><?= $vv['updated_at']; ?></td>
+                            <td><?= $vv['prodi']; ?></td>
+                            <td><?= $vv['hasil_validasi']; ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
         </div>
     </section>
 </div>

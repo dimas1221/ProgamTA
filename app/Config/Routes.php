@@ -32,7 +32,7 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'User::index');
-$routes->get('/validasi/pengajuan_ta', 'Validasi::insert');
+$routes->get('/validasi/pdftext', 'Validasi::insert');
 $routes->get('/validasi/pdftext', 'Validasi::pdftext');
 $routes->get('/admin', 'Admin::index', ['filter' => 'role::admin']);
 $routes->get('/admin/index', 'Admin::index', ['filter' => 'role::admin']);
