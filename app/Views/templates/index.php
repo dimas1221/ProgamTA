@@ -102,6 +102,15 @@
             return i;
         }
         setInterval(showTime, 500);
+
+        // ucapan selamat pagi siang
+        var h = (new Date()).getHours();
+        var m = (new Date()).getMinutes();
+        var s = (new Date()).getSeconds();
+        if (h >= 4 && h < 10) document.getElementById('caption').innerHTML = "selamat pagi";
+        if (h >= 10 && h < 15) document.getElementById('caption').innerHTML = "selamat siang";
+        if (h >= 15 && h < 18) document.getElementById('caption').innerHTML = "selamat sore";
+        if (h >= 18 || h < 4) document.getElementById('caption').innerHTML = "selamat malam";
     </script>
 </body>
 

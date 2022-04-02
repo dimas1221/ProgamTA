@@ -4,17 +4,17 @@
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1>list Mahasiswa</h1>
+            <h1>Hasil Validasi</h1>
         </div>
         <div class="section-body">
             <table class="table" style=" width: max-content;">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
+                        <th scope="col">No</th>
                         <th scope="col">Nama</th>
                         <th scope="col">Nim</th>
-                        <th scope="col">creted_at</th>
-                        <th scope="col">updated_at</th>
+                        <th scope="col">creted</th>
+                        <th scope="col">updated</th>
                         <th scope="col">Prodi</th>
                         <th scope="col">Status</th>
                     </tr>

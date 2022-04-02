@@ -4,14 +4,14 @@
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1>My profile</h1>
+            <h1>Dashboard</h1>
         </div>
         <div class="section-body">
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                     <div class="card card-statistic-1">
                         <div class="card-icon bg-primary">
-                            <i class="far fa-user"></i>
+                            <i class="bi bi-people text-light" style="font-size: 30px;"></i>
                         </div>
                         <div class="card-wrap">
                             <div class="card-header">
@@ -26,7 +26,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                     <div class="card card-statistic-1">
                         <div class="card-icon bg-danger">
-                            <i class="far fa-newspaper"></i>
+                            <i class="bi bi-alarm text-light" style="font-size: 30px;"></i>
                         </div>
                         <div class="card-wrap">
                             <div class="card-header">
@@ -56,14 +56,14 @@
                 <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                     <div class="card card-statistic-1">
                         <div class="card-icon bg-success">
-                            <i class="fas fa-circle"></i>
+                            <i class="bi bi-brightness-alt-high text-light" style="font-size: 30px;"></i>
                         </div>
                         <div class="card-wrap">
                             <div class="card-header">
-                                <h4>Online Users</h4>
+                                <h4 id="caption2"></h4>
                             </div>
                             <div class="card-body">
-                                47
+                                <p id="caption1"></p>
                             </div>
                         </div>
                     </div>
