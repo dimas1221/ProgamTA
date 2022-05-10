@@ -82,4 +82,15 @@ class Validasi extends BaseController
     {
         return view('/validasi/pdftext');
     }
+
+    public function export()
+    {
+        $viewvalidasi = $this->validasiModel->findAll();
+
+        $data = [
+            'viewvalidasi' => $viewvalidasi
+        ];
+
+        echo view('validasi/excel', $data);
+    }
 }
