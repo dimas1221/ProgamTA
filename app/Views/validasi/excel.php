@@ -36,7 +36,7 @@
     <script src="https://cdn.datatables.net/buttons/2.1.0/js/buttons.print.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.1.0/js/buttons.colVis.min.js"></script>
     <!-- end -->
-    <title>Document</title>
+    <title>Hasil Validasi</title>
 </head>
 
 <body>
@@ -56,6 +56,8 @@
             </ul>
         </div>
     </nav>
+    <br>
+    <br>
     <br>
     <div class="mt-5 mb-5">
         <section class="section">

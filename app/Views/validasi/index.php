@@ -13,9 +13,9 @@
                         <a href="/validasi/export" class="btn btn-success shadow float-left">Export <i class="bi bi-file-earmark-text-fill"></i></a>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col">
-                        <table class="table" style=" width: 100%;">
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <table class="table" style="width:auto;">
                             <thead>
                                 <tr>
                                     <th scope="col">No</th>
@@ -25,8 +25,8 @@
                                     <th scope="col">updated</th>
                                     <th scope="col">Prodi</th>
                                     <th scope="col">Status</th>
-                                    <th scope="col">Action</th>
-                                    <th scope="col">Action</th>
+                                    <th scope="col" colspan="2">Action</th>
+                                    <!-- <th scope="col">Action</th> -->
                                 </tr>
                             </thead>
                             <tbody>
@@ -40,8 +40,8 @@
                                         <td><?= $vv['updated_at']; ?></td>
                                         <td><?= $vv['prodi']; ?></td>
                                         <td><?= $vv['hasil_validasi']; ?></td>
-                                        <td><a class="btn btn-warning" href="#" style="width: 140%;">Edit</a></td>
-                                        <td><a class="btn btn-danger" href="#" style="width: 100%;">Delete</a></td>
+                                        <td><a class="btn btn-warning" href="#"><i class="bi bi-pencil-fill"></i></a></td>
+                                        <td><a class="btn btn-danger" href="#"><i class="bi bi-trash3-fill"></i></a></td>
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>

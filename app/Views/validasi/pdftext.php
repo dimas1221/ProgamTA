@@ -581,7 +581,30 @@ if (isset($_POST['submit'])) {
                                 // hasil validasi
                                 $hasilValidasi = '';
 
-                                if ($ipk && $sks && $kp && $setik == 'bi bi-check-circle-fill text-success') {
+                                if (
+                                    $ipk == 'bi bi-check-circle-fill text-success' &&
+                                    $sks == 'bi bi-check-circle-fill text-success' &&
+                                    $kp == 'bi bi-check-circle-fill text-success' &&
+                                    $setik == 'bi bi-check-circle-fill text-success' &&
+                                    $mkBindo == 'bi bi-check-circle-fill text-success' &&
+                                    $mkAgama == 'bi bi-check-circle-fill text-success' &&
+                                    $mkKwn == 'bi bi-check-circle-fill text-success' &&
+                                    $mkBing1 == 'bi bi-check-circle-fill text-success' &&
+                                    $mkBing2 == 'bi bi-check-circle-fill text-success' &&
+                                    $mkapti1 == 'bi bi-check-circle-fill text-success' &&
+                                    $mkapti2 == 'bi bi-check-circle-fill text-success' &&
+                                    $mkKwu == 'bi bi-check-circle-fill text-success' &&
+                                    $mkPK == 'bi bi-check-circle-fill text-success' &&
+                                    $dwPratik == 'bi bi-check-circle-fill text-success' &&
+                                    $sbdPraktik == 'bi bi-check-circle-fill text-success' &&
+                                    $soPraktik == 'bi bi-check-circle-fill text-success' &&
+                                    $strukturDataPraktik == 'bi bi-check-circle-fill text-success' &&
+                                    $jarkomPraktik == 'bi bi-check-circle-fill text-success' &&
+                                    $pboPraktik == 'bi bi-check-circle-fill text-success' &&
+                                    $pwPraktik == 'bi bi-check-circle-fill text-success' &&
+                                    $sbdlPraktik == 'bi bi-check-circle-fill text-success' &&
+                                    $pmPraktik == 'bi bi-check-circle-fill text-success'
+                                ) {
                                     $hasilValidasi = 'lolos';
                                 } elseif ($pdfText == '') {
                                     $hasilValidasi = '';

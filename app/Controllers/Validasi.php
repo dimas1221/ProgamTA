@@ -20,8 +20,13 @@ class Validasi extends BaseController
         $viewvalidasi = $this->validasiModel->findAll();
 
         $data = [
+            'title' => 'Hasil Validasi',
             'viewvalidasi' => $viewvalidasi
         ];
+
+        // $data['viewvalidasi'] = $viewvalidasi->paginate(5, 'viewvalidasi');
+        // $data['pager'] = $this->validasiModel->pager;
+
 
         return view('validasi/index', $data);
     }
@@ -80,7 +85,10 @@ class Validasi extends BaseController
 
     public function pdftext()
     {
-        return view('/validasi/pdftext');
+        $data = [
+            'title' => 'Validation Page',
+        ];
+        return view('/validasi/pdftext', $data);
     }
 
     public function export()
