@@ -80,7 +80,7 @@ if (isset($_POST['submit'])) {
                                 $mkPK = '';
                                 $setik = '';
                                 // regex ipk
-                                if (preg_match("/(IPK(\s|):(\s|)(3.)[0-9]{0,2})|(IPK(\s|):(\s|)(2.)[5-9]{1,2})
+                                if (preg_match("/(I(\s|)P(\s|)K(\s|):(\s|)(3.)[0-9]{0,2})|(I(\s|)P(\s|)K(\s|):(\s|)(2.)[5-9]{1,2})
                                 |(IPK(\s|):(\s|)(4.)[0]{1,2})/imx", $pdfText)) {
                                     $ipk = 'bi bi-check-circle-fill text-success';
                                 } else if ($pdfText == '') {
@@ -89,7 +89,7 @@ if (isset($_POST['submit'])) {
                                     $ipk = 'bi bi-x-circle-fill text-danger';
                                 }
                                 // regex sks
-                                if (preg_match("/Total(\s|)SKS(\s|):(\s|)((13)[8-9])|Total(\s|)SKS(\s|):(\s|)((14)[0-9])/mix", $pdfText)) {
+                                if (preg_match("/T(\s|)o(\s|)t(\s|)a(\s|)l(\s|)S(\s|)K(\s|)S(\s|):(\s|)((13)[8-9])|T(\s|)o(\s|)t(\s|)a(\s|)l(\s|)S(\s|)K(\s|)S(\s|):(\s|)((14)[0-9])/mix", $pdfText)) {
                                     $sks = 'bi bi-check-circle-fill text-success';
                                 } else if ($pdfText == '') {
                                     $sks = '';
@@ -97,7 +97,7 @@ if (isset($_POST['submit'])) {
                                     $sks = 'bi bi-x-circle-fill text-danger';
                                 }
                                 // regex KP
-                                if (preg_match("/(Kerja(\s|)Praktik(\s|)3(\s|)[0-9]{0,2}(\s|)(\s|)(\d|){0,3}[A-B|a-b])/mix", $pdfText)) {
+                                if (preg_match("/(K(\s|)e(\s|)r(\s|)j(\s|)a(\s|)P(\s|)r(\s|)a(\s|)k(\s|)t(\s|)i(\s|)k(\s|)3(\s|)[0-9]{0,2}(\s|)(\s|)(\d|){0,3}[A-B|a-b])/mix", $pdfText)) {
                                     $kp = 'bi bi-check-circle-fill text-success';
                                 } else if ($pdfText == '') {
                                     $kp = '';
@@ -105,7 +105,7 @@ if (isset($_POST['submit'])) {
                                     $kp = 'bi bi-x-circle-fill text-danger';
                                 }
                                 // regex setik
-                                if (preg_match("/(Seminar(\s|)T(\s|)ematik(\s|)2(\s|)(\d|){0,2}(\s|)(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
+                                if (preg_match("/(S(\s|)e(\s|)m(\s|)i(\s|)n(\s|)a(\s|)r(\s|)T(\s|)e(\s|)m(\s|)a(\s|)t(\s|)i(\s|)k(\s|)2(\s|)(\d|){0,2}(\s|)(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
                                     $setik = 'bi bi-check-circle-fill text-success';
                                 } else if ($pdfText == '') {
                                     $setik = '';
@@ -114,7 +114,7 @@ if (isset($_POST['submit'])) {
                                 }
                                 // MINIMAL C
                                 // regex matkul agama
-                                if (preg_match("/(Agama(\s|)islam(\s|)2(\s|)(\d|){0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-C|a-c])/imx", $pdfText)) {
+                                if (preg_match("/(A(\s|)g(\s|)a(\s|)m(\s|)a(\s|)i(\s|)s(\s|)l(\s|)a(\s|)m(\s|)2(\s|)(\d|){0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-C|a-c])/imx", $pdfText)) {
                                     $mkAgama = 'bi bi-check-circle-fill text-success';
                                 } else if ($pdfText == '') {
                                     $mkAgama = '';
@@ -122,7 +122,7 @@ if (isset($_POST['submit'])) {
                                     $mkAgama = 'bi bi-x-circle-fill text-danger';
                                 }
                                 // regex bhs indo
-                                if (preg_match("/(Bahasa(\s|)Indonesia(\s|)2(\s|)(\d|){0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-C|a-c])/mix", $pdfText)) {
+                                if (preg_match("/(B(\s|)a(\s|)h(\s|)a(\s|)s(\s|)a(\s|)I(\s|)n(\s|)d(\s|)o(\s|)n(\s|)e(\s|)s(\s|)i(\s|)a(\s|)2(\s|)(\d|){0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-C|a-c])/mix", $pdfText)) {
                                     $mkBindo = 'bi bi-check-circle-fill text-success';
                                 } else if ($pdfText == '') {
                                     $mkBindo = '';
@@ -130,7 +130,7 @@ if (isset($_POST['submit'])) {
                                     $mkBindo = 'bi bi-x-circle-fill text-danger';
                                 }
                                 // regex kwn
-                                if (preg_match("/(Kewarganegaraan(\s|)2(\s|)(\d|){0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-C|a-c])/mix", $pdfText)) {
+                                if (preg_match("/(K(\s|)e(\s|)w(\s|)a(\s|)r(\s|)g(\s|)a(\s|)n(\s|)e(\s|)g(\s|)a(\s|)r(\s|)a(\s|)a(\s|)n(\s|)2(\s|)(\d|){0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-C|a-c])/mix", $pdfText)) {
                                     $mkKwn = 'bi bi-check-circle-fill text-success';
                                 } else if ($pdfText == '') {
                                     $mkKwn = '';
@@ -139,7 +139,7 @@ if (isset($_POST['submit'])) {
                                 }
                                 // Mtkul minimal B
                                 // Bhs inggris1
-                                if (preg_match("/(Bahasa(\s|)inggris(\s|)I(\s|)[(]Integrated[)](\s|)2(\s|)(\d|){0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
+                                if (preg_match("/(B(\s|)a(\s|)h(\s|)a(\s|)s(\s|)a(\s|)i(\s|)n(\s|)g(\s|)g(\s|)r(\s|)i(\s|)s(\s|)I(\s|)[(]I(\s|)n(\s|)t(\s|)e(\s|)g(\s|)r(\s|)a(\s|)t(\s|)e(\s|)d[)](\s|)2(\s|)(\d|){0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
                                     $mkBing1 = 'bi bi-check-circle-fill text-success';
                                 } else if ($pdfText == '') {
                                     $mkBing1 = '';
@@ -147,7 +147,7 @@ if (isset($_POST['submit'])) {
                                     $mkBing1 = 'bi bi-x-circle-fill text-danger';
                                 }
                                 // Bhs inggris2
-                                if (preg_match("/(Bahasa(\s|)inggris(\s|)II(\s|)[(]Communicative[)](\s|)2(\s|)(\d|){0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
+                                if (preg_match("/(B(\s|)a(\s|)h(\s|)a(\s|)s(\s|)a(\s|)i(\s|)n(\s|)g(\s|)g(\s|)r(\s|)i(\s|)s(\s|)I(\s|)I(\s|)[(]C(\s|)o(\s|)m(\s|)m(\s|)u(\s|)n(\s|)i(\s|)c(\s|)a(\s|)t(\s|)i(\s|)v(\s|)e[)](\s|)2(\s|)(\d|){0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
                                     $mkBing2 = 'bi bi-check-circle-fill text-success';
                                 } else if ($pdfText == '') {
                                     $mkBing2 = '';
@@ -155,7 +155,7 @@ if (isset($_POST['submit'])) {
                                     $mkBing2 = 'bi bi-x-circle-fill text-danger';
                                 }
                                 // Apti 1
-                                if (preg_match("/(Aplikasi(\s|)T(\s|)eknologi(\s|)Informasi(\s|)I(\s|)2(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
+                                if (preg_match("/(A(\s|)p(\s|)l(\s|)i(\s|)k(\s|)a(\s|)s(\s|)i(\s|)T(\s|)e(\s|)k(\s|)n(\s|)o(\s|)l(\s|)o(\s|)g(\s|)i(\s|)I(\s|)n(\s|)f(\s|)o(\s|)r(\s|)m(\s|)a(\s|)s(\s|)i(\s|)I(\s|)2(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
                                     $mkapti1 = 'bi bi-check-circle-fill text-success';
                                 } else if ($pdfText == '') {
                                     $mkapti1 = '';
@@ -163,7 +163,7 @@ if (isset($_POST['submit'])) {
                                     $mkapti1 = 'bi bi-x-circle-fill text-danger';
                                 }
                                 // Apti 2
-                                if (preg_match("/(Aplikasi(\s|)T(\s|)eknologi(\s|)Informasi(\s|)II(\s|)2(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
+                                if (preg_match("/(A(\s|)p(\s|)l(\s|)i(\s|)k(\s|)a(\s|)s(\s|)i(\s|)T(\s|)e(\s|)k(\s|)n(\s|)o(\s|)l(\s|)o(\s|)g(\s|)i(\s|)I(\s|)n(\s|)f(\s|)o(\s|)r(\s|)m(\s|)a(\s|)s(\s|)i(\s|)I(\s|)I(\s|)2(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
                                     $mkapti2 = 'bi bi-check-circle-fill text-success';
                                 } else if ($pdfText == '') {
                                     $mkapti2 = '';
@@ -171,7 +171,7 @@ if (isset($_POST['submit'])) {
                                     $mkapti2 = 'bi bi-x-circle-fill text-danger';
                                 }
                                 // KWU
-                                if (preg_match("/(Kewirausahaan(\s|)2(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
+                                if (preg_match("/(K(\s|)e(\s|)w(\s|)i(\s|)r(\s|)a(\s|)u(\s|)s(\s|)a(\s|)h(\s|)a(\s|)a(\s|)n(\s|)2(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
                                     $mkKwu = 'bi bi-check-circle-fill text-success';
                                 } else if ($pdfText == '') {
                                     $mkKwu = '';
@@ -179,7 +179,7 @@ if (isset($_POST['submit'])) {
                                     $mkKwu = 'bi bi-x-circle-fill text-danger';
                                 }
                                 // PK
-                                if (preg_match("/(Pengembangan(\s|)Kepribadian(\s|)2(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
+                                if (preg_match("/(P(\s|)e(\s|)n(\s|)g(\s|)e(\s|)m(\s|)b(\s|)a(\s|)n(\s|)g(\s|)a(\s|)n(\s|)K(\s|)e(\s|)p(\s|)r(\s|)i(\s|)b(\s|)a(\s|)d(\s|)i(\s|)a(\s|)n(\s|)2(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
                                     $mkPK = 'bi bi-check-circle-fill text-success';
                                 } else if ($pdfText == '') {
                                     $mkPK = '';
@@ -198,7 +198,7 @@ if (isset($_POST['submit'])) {
                                 $pmPraktik;
 
                                 // dw praktik
-                                if (preg_match("/(Desain(\s|)Web(\s|)Praktikum(\s|)1(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
+                                if (preg_match("/(D(\s|)e(\s|)s(\s|)a(\s|)i(\s|)n(\s|)W(\s|)e(\s|)b(\s|)P(\s|)r(\s|)a(\s|)k(\s|)t(\s|)i(\s|)k(\s|)u(\s|)m(\s|)1(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
                                     $dwPratik = 'bi bi-check-circle-fill text-success';
                                 } else if ($pdfText == '') {
                                     $dwPratik = '';
@@ -206,7 +206,7 @@ if (isset($_POST['submit'])) {
                                     $dwPratik = 'bi bi-x-circle-fill text-danger';
                                 }
                                 // SBD praktik
-                                if (preg_match("/(Sistem(\s|)Basis(\s|)Data(\s|)Praktikum(\s|)1(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
+                                if (preg_match("/(S(\s|)i(\s|)s(\s|)t(\s|)e(\s|)m(\s|)B(\s|)a(\s|)s(\s|)i(\s|)s(\s|)D(\s|)a(\s|)t(\s|)a(\s|)P(\s|)r(\s|)a(\s|)k(\s|)t(\s|)i(\s|)k(\s|)u(\s|)m(\s|)1(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
                                     $sbdPraktik = 'bi bi-check-circle-fill text-success';
                                 } else if ($pdfText == '') {
                                     $sbdPraktik = '';
@@ -214,7 +214,7 @@ if (isset($_POST['submit'])) {
                                     $sbdPraktik = 'bi bi-x-circle-fill text-danger';
                                 }
                                 // So praktik
-                                if (preg_match("/(Sistem(\s|)Operasi(\s|)Praktikum(\s|)1(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
+                                if (preg_match("/(S(\s|)i(\s|)s(\s|)t(\s|)e(\s|)m(\s|)O(\s|)p(\s|)e(\s|)r(\s|)a(\s|)s(\s|)i(\s|)P(\s|)r(\s|)a(\s|)k(\s|)t(\s|)i(\s|)k(\s|)u(\s|)m(\s|)1(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
                                     $soPraktik = 'bi bi-check-circle-fill text-success';
                                 } else if ($pdfText == '') {
                                     $soPraktik = '';
@@ -222,7 +222,7 @@ if (isset($_POST['submit'])) {
                                     $soPraktik = 'bi bi-x-circle-fill text-danger';
                                 }
                                 // Struktur data praktik
-                                if (preg_match("/(Struktur(\s|)Data(\s|)Praktikum(\s|)1(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
+                                if (preg_match("/(S(\s|)t(\s|)r(\s|)u(\s|)k(\s|)t(\s|)u(\s|)r(\s|)D(\s|)a(\s|)t(\s|)a(\s|)P(\s|)r(\s|)a(\s|)k(\s|)t(\s|)i(\s|)k(\s|)u(\s|)m(\s|)1(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
                                     $strukturDataPraktik = 'bi bi-check-circle-fill text-success';
                                 } else if ($pdfText == '') {
                                     $strukturDataPraktik = '';
@@ -230,7 +230,7 @@ if (isset($_POST['submit'])) {
                                     $strukturDataPraktik = 'bi bi-x-circle-fill text-danger';
                                 }
                                 // Jarkom praktik
-                                if (preg_match("/(Jaringan(\s|)Komputer(\s|)Praktikum(\s|)1(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
+                                if (preg_match("/(J(\s|)a(\s|)r(\s|)i(\s|)n(\s|)g(\s|)a(\s|)n(\s|)K(\s|)o(\s|)m(\s|)p(\s|)u(\s|)t(\s|)e(\s|)r(\s|)P(\s|)r(\s|)a(\s|)k(\s|)t(\s|)i(\s|)k(\s|)u(\s|)m(\s|)1(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
                                     $jarkomPraktik = 'bi bi-check-circle-fill text-success';
                                 } else if ($pdfText == '') {
                                     $jarkomPraktik = '';
@@ -238,7 +238,7 @@ if (isset($_POST['submit'])) {
                                     $jarkomPraktik = 'bi bi-x-circle-fill text-danger';
                                 }
                                 // PBO praktik
-                                if (preg_match("/(Pemrograman(\s|)Berorientasi(\s|)Objek(\s|)Praktikum(\s|)1(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
+                                if (preg_match("/(P(\s|)e(\s|)m(\s|)r(\s|)o(\s|)g(\s|)r(\s|)a(\s|)m(\s|)a(\s|)n(\s|)B(\s|)e(\s|)r(\s|)o(\s|)r(\s|)i(\s|)e(\s|)n(\s|)t(\s|)a(\s|)s(\s|)i(\s|)O(\s|)b(\s|)j(\s|)e(\s|)k(\s|)P(\s|)r(\s|)a(\s|)k(\s|)t(\s|)i(\s|)k(\s|)u(\s|)m(\s|)1(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
                                     $pboPraktik = 'bi bi-check-circle-fill text-success';
                                 } else if ($pdfText == '') {
                                     $pboPraktik = '';
@@ -246,7 +246,7 @@ if (isset($_POST['submit'])) {
                                     $pboPraktik = 'bi bi-x-circle-fill text-danger';
                                 }
                                 // Pw praktik
-                                if (preg_match("/(Pemrograman(\s|)W(\s|)eb(\s|)Praktikum(\s|)2(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
+                                if (preg_match("/(P(\s|)e(\s|)m(\s|)r(\s|)o(\s|)g(\s|)r(\s|)a(\s|)m(\s|)a(\s|)n(\s|)W(\s|)e(\s|)b(\s|)P(\s|)r(\s|)a(\s|)k(\s|)t(\s|)i(\s|)k(\s|)u(\s|)m(\s|)2(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
                                     $pwPraktik = 'bi bi-check-circle-fill text-success';
                                 } else if ($pdfText == '') {
                                     $pwPraktik = '';
@@ -254,7 +254,7 @@ if (isset($_POST['submit'])) {
                                     $pwPraktik = 'bi bi-x-circle-fill text-danger';
                                 }
                                 // Sbdl praktik
-                                if (preg_match("/(Sistem(\s|)Basis(\s|)Data(\s|)Lanjut(\s|)Praktikum(\s|)1(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
+                                if (preg_match("/(S(\s|)i(\s|)s(\s|)t(\s|)e(\s|)m(\s|)B(\s|)a(\s|)s(\s|)i(\s|)s(\s|)D(\s|)a(\s|)t(\s|)a(\s|)L(\s|)a(\s|)n(\s|)j(\s|)u(\s|)t(\s|)P(\s|)r(\s|)a(\s|)k(\s|)t(\s|)i(\s|)k(\s|)u(\s|)m(\s|)1(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
                                     $sbdlPraktik = 'bi bi-check-circle-fill text-success';
                                 } else if ($pdfText == '') {
                                     $sbdlPraktik = '';
@@ -262,7 +262,7 @@ if (isset($_POST['submit'])) {
                                     $sbdlPraktik = 'bi bi-x-circle-fill text-danger';
                                 }
                                 // pm praktik
-                                if (preg_match("/(Pemrograman(\s|)Mobile(\s|)Praktikum(\s|)2(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
+                                if (preg_match("/(P(\s|)e(\s|)m(\s|)r(\s|)o(\s|)g(\s|)r(\s|)a(\s|)m(\s|)a(\s|)n(\s|)M(\s|)o(\s|)b(\s|)i(\s|)l(\s|)e(\s|)P(\s|)r(\s|)a(\s|)k(\s|)t(\s|)i(\s|)k(\s|)u(\s|)m(\s|)2(\s|)[0-9]{0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
                                     $pmPraktik = 'bi bi-check-circle-fill text-success';
                                 } else if ($pdfText == '') {
                                     $pmPraktik = '';
@@ -603,7 +603,8 @@ if (isset($_POST['submit'])) {
                                     $pboPraktik == 'bi bi-check-circle-fill text-success' &&
                                     $pwPraktik == 'bi bi-check-circle-fill text-success' &&
                                     $sbdlPraktik == 'bi bi-check-circle-fill text-success' &&
-                                    $pmPraktik == 'bi bi-check-circle-fill text-success'
+                                    $pmPraktik == 'bi bi-check-circle-fill text-success' &&
+                                    $presentaseD == 'bi bi-check-circle-fill text-success'
                                 ) {
                                     $hasilValidasi = 'lolos';
                                 } elseif ($pdfText == '') {
