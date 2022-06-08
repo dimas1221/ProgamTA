@@ -40,8 +40,15 @@
                                         <td><?= $vv['updated_at']; ?></td>
                                         <td><?= $vv['prodi']; ?></td>
                                         <td><?= $vv['hasil_validasi']; ?></td>
-                                        <td><a class="btn btn-warning" href="#"><i class="bi bi-pencil-fill"></i></a></td>
-                                        <td><a class="btn btn-danger" href="#"><i class="bi bi-trash3-fill"></i></a></td>
+                                        <td><a class="btn btn-warning" href="/validasi/edit/ <?= $vv['id_validasi']; ?>"><i class="bi bi-pencil-fill"></i></a></td>
+                                        <!-- <td><a class="btn btn-danger" href="/validasi/delete/<?= $vv['id_validasi'] ?>"><i class="bi bi-trash3-fill"></i></a></td> -->
+                                        <td>
+                                            <form action="/validasi/<?= $vv['id_validasi']; ?>" method="post">
+                                                <?= csrf_field(); ?>
+                                                <input type="hidden" name="_method" value="DELETE">
+                                                <button type="submit" class="btn btn-danger" onclick="return confirm('are you sure ?');"><i class="bi bi-trash3-fill"></i></button>
+                                            </form>
+                                        </td>
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>

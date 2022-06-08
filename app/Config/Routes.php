@@ -33,8 +33,10 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'User::index');
 $routes->get('/validasi/pdftext', 'Validasi::insert');
-$routes->get('/validasi/pdftext', 'Validasi::pdftext');
+// $routes->get('/validasi/pdftext', 'Validasi::pdftext');
 $routes->get('/validasi/export', 'Validasi::export');
+$routes->get('/validasi/edit/(:segment)', 'Validasi::edit/$1');
+$routes->delete('/validasi/(:num)', 'Validasi::delete/$1');
 $routes->get('/admin', 'Admin::index', ['filter' => 'role::admin']);
 $routes->get('/admin/index', 'Admin::index', ['filter' => 'role::admin']);
 

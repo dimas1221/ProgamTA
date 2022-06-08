@@ -79,6 +79,7 @@ if (isset($_POST['submit'])) {
                                 $mkKwu = '';
                                 $mkPK = '';
                                 $setik = '';
+                                // $mkX;
                                 // regex ipk
                                 if (preg_match("/(I(\s|)P(\s|)K(\s|):(\s|)(3.)[0-9]{0,2})|(I(\s|)P(\s|)K(\s|):(\s|)(2.)[5-9]{1,2})
                                 |(IPK(\s|):(\s|)(4.)[0]{1,2})/imx", $pdfText)) {
@@ -146,6 +147,14 @@ if (isset($_POST['submit'])) {
                                 } else {
                                     $mkBing1 = 'bi bi-x-circle-fill text-danger';
                                 }
+                                // contoh matkul X
+                                // if (preg_match("/(X(\s|)2(\s|)(\d|){0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-C|a-c])/mix", $pdfText)) {
+                                //     $mkX = 'bi bi-check-circle-fill text-success';
+                                // } else if ($pdfText == '') {
+                                //     $mkX = '';
+                                // } else {
+                                //     $mkX = 'bi bi-x-circle-fill text-danger';
+                                // }
                                 // Bhs inggris2
                                 if (preg_match("/(B(\s|)a(\s|)h(\s|)a(\s|)s(\s|)a(\s|)i(\s|)n(\s|)g(\s|)g(\s|)r(\s|)i(\s|)s(\s|)I(\s|)I(\s|)[(]C(\s|)o(\s|)m(\s|)m(\s|)u(\s|)n(\s|)i(\s|)c(\s|)a(\s|)t(\s|)i(\s|)v(\s|)e[)](\s|)2(\s|)(\d|){0,2}(\s|)[0-9]{0,3}(\s|).(\d|){0,3}(\s|)[A-B|a-b])/mix", $pdfText)) {
                                     $mkBing2 = 'bi bi-check-circle-fill text-success';
@@ -605,6 +614,7 @@ if (isset($_POST['submit'])) {
                                     $sbdlPraktik == 'bi bi-check-circle-fill text-success' &&
                                     $pmPraktik == 'bi bi-check-circle-fill text-success' &&
                                     $presentaseD == 'bi bi-check-circle-fill text-success'
+                                    // && $mkX == 'bi bi-check-circle-fill text-success'
                                 ) {
                                     $hasilValidasi = 'lolos';
                                 } elseif ($pdfText == '') {
@@ -617,23 +627,33 @@ if (isset($_POST['submit'])) {
                         </div>
                     </div>
                     <div class="col-4">
+
                         <form action="/validasi/save" method="POST" enctype="multipart/form-data">
                             <?= csrf_field(); ?>
                             <div class="mb-3">
                                 <label for="exampleInputName" class="form-label">Nama</label>
-                                <input type="text" name="nama_mahasiswa" class="form-control" id="exampleInputName" aria-describedby="emailHelp">
+                                <input type="text" name="nama_mahasiswa" class="form-control <?= ($validation->hasError('nama_mahasiswa')) ? 'is-invalid' : ''; ?>" id="exampleInputName" value="<?= old('nama_mahasiswa'); ?>">
+                                <div class="invalid-feedback">
+                                    <?= $validation->getError('nama_mahasiswa'); ?>
+                                </div>
                             </div>
                             <div class="mb-3">
                                 <label for="exampleInputNim" class="form-label">Nim</label>
-                                <input type="text" name="nim_mahasiswa" class="form-control" id="exampleInputNim" aria-describedby="emailHelp">
+                                <input type="text" name="nim_mahasiswa" class="form-control <?= ($validation->hasError('nim_mahasiswa')) ? 'is-invalid' : ''; ?>" id="exampleInputNim" value="<?= old('nim_mahasiswa'); ?>">
+                                <div class="invalid-feedback">
+                                    <?= $validation->getError('nim_mahasiswa'); ?>
+                                </div>
                             </div>
-                            <div class="mb-3">
+                            <div class=" mb-3">
                                 <label for="exampleInputProdi" class="form-label">Prodi</label>
                                 <input type="text" name="prodi" class="form-control" id="exampleInputProdi" aria-describedby="emailHelp" value="Informatika" readonly>
                             </div>
                             <div class="mb-3">
                                 <label for="exampleInputStatus" class="form-label">Status</label>
-                                <input type="text" name="hasil_validasi" class="form-control" id="exampleInputStatus" aria-describedby="emailHelp" value="<?= $hasilValidasi ?>" readonly>
+                                <input type="text" name="hasil_validasi" class="form-control <?= ($validation->hasError('hasil_validasi')) ? 'is-invalid' : ''; ?>" id="exampleInputStatus" aria-describedby="emailHelp" value="<?= $hasilValidasi ?>" readonly value="<?= old('hasil_validasi'); ?>">
+                                <div class="invalid-feedback">
+                                    <?= $validation->getError('hasil_validasi'); ?>
+                                </div>
                             </div>
                             <button type="submit" class="btn btn-primary">Save</button>
                         </form>
@@ -659,6 +679,7 @@ if (isset($_POST['submit'])) {
                                     <p><i class="<?= $kp ?>"></i> Kerja Praktik</p>
                                     <p><i class="<?= $setik ?>"></i> Seminar Tematik</p>
                                     <p class="text-info">Mk wajib minimal C</p>
+                                    <!-- <p><i class="< $mkX ?>"></i> Mata kuliah X</p> -->
                                     <p><i class="<?= $mkAgama ?>"></i> Agama</p>
                                     <p><i class="<?= $mkBindo ?>"></i> Bahasa Indonesia</p>
                                     <p><i class="<?= $mkKwn ?>"></i> Kewarganegaaan</p>

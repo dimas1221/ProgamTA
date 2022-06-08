@@ -35,7 +35,7 @@ class Validasi extends BaseController
     {
         // session();
         $data = [
-            'title' => 'Form input data',
+            'title' => 'Validation page',
             'validation' => \Config\Services::validation()
         ];
         return view('validasi/pdftext', $data);
@@ -47,13 +47,23 @@ class Validasi extends BaseController
         //validasi input
         if (!$this->validate([
             'nama_mahasiswa' =>  [
-                'rules' => 'required|is_unique[tb_hasil_validasi.nama_mahasiswa]'
+                'rules' => 'required[tb_hasil_validasi.nama_mahasiswa]',
+                'errors' => [
+                    'required' => '{field} harus diisi'
+                ]
             ],
             'nim_mahasiswa' =>  [
-                'rules' => 'required|is_unique[tb_hasil_validasi.nim_mahasiswa]'
+                'rules' => 'required|is_unique[tb_hasil_validasi.nim_mahasiswa]',
+                'errors' => [
+                    'required' => '{field} harus diisi'
+                ]
+
             ],
             'hasil_validasi' =>  [
-                'rules' => 'required[tb_hasil_validasi.hasil_validasi]'
+                'rules' => 'required[tb_hasil_validasi.hasil_validasi]',
+                'errors' => [
+                    'required' => 'harus melakukan validasi terlebih dahulu'
+                ]
             ]
             // 'khs' => [
             //     'rules' => 'uploaded[khs]|max_size[khs,5024]|ext_in[khs,pdf]'
@@ -87,7 +97,9 @@ class Validasi extends BaseController
     {
         $data = [
             'title' => 'Validation Page',
+            'validation' => \Config\Services::validation()
         ];
+
         return view('/validasi/pdftext', $data);
     }
 
@@ -100,5 +112,22 @@ class Validasi extends BaseController
         ];
 
         echo view('validasi/excel', $data);
+    }
+
+    public function delete($id_validasi)
+    {
+        $this->validasiModel->delete($id_validasi);
+
+        return redirect()->to('/validasi/index');
+    }
+
+    public function edit($id_validasi)
+    {
+        $data = [
+            'title' => 'Form ubah data',
+            'validation' => \Config\Services::validation(),
+            'viewvalidasi' => $this->validasiModel->find($id_validasi)
+        ];
+        return view('validasi/edit', $data);
     }
 }

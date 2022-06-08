@@ -63,7 +63,7 @@
             // const imgPrev = document.querySelector('.img-preview');
 
             label.textContent = file.files[0].name;
-
+            document.getElementById('namafile').innerHTML = file.files[0].name;
             const fileFoto = new FileReader();
             fileFoto.readAsDataURL(foto.files[0]);
 
