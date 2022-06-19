@@ -130,4 +130,18 @@ class Validasi extends BaseController
         ];
         return view('validasi/edit', $data);
     }
+
+    public function updated($id_validasi)
+    {
+        $this->validasiModel->save([
+            'id_validasi' => $id_validasi,
+            'nama_mahasiswa' => $this->request->getVar('nama_mahasiswa'),
+            'nim_mahasiswa' => $this->request->getVar('nim_mahasiswa'),
+            'prodi' => $this->request->getVar('prodi'),
+            'hasil_validasi' => $this->request->getVar('hasil_validasi')
+            // 'khs' => $namakhs
+        ]);
+
+        return redirect()->to('/validasi/index')->withInput();
+    }
 }

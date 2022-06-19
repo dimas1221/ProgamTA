@@ -7,15 +7,15 @@
             <h1>Edit Hasil Validasi</h1>
         </div>
         <div class="section-body">
-            <form action="" method="POST" enctype="multipart/form-data">
+            <form action="validasi/updated/<?= $viewvalidasi['id_validasi']; ?>" method="post">
                 <?= csrf_field(); ?>
                 <div class="mb-3">
                     <label for="exampleInputName" class="form-label">Nama</label>
-                    <input type="text" name="nama_mahasiswa" class="form-control" id="exampleInputName" aria-describedby="emailHelp">
+                    <input type="text" name="nama_mahasiswa" class="form-control" id="exampleInputName" value="<?= $viewvalidasi['nama_mahasiswa'] ?>">
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputNim" class="form-label">Nim</label>
-                    <input type="text" name="nim_mahasiswa" class="form-control" id="exampleInputNim" aria-describedby="emailHelp">
+                    <input type="text" name="nim_mahasiswa" class="form-control" id="exampleInputNim" value="<?= $viewvalidasi['nim_mahasiswa'] ?>">
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputProdi" class="form-label">Prodi</label>
@@ -23,7 +23,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputStatus" class="form-label">Status</label>
-                    <input type="text" name="hasil_validasi" class="form-control" id="exampleInputStatus" aria-describedby="emailHelp" readonly>
+                    <input type="text" name="hasil_validasi" class="form-control" id="exampleInputStatus" value="<?= $viewvalidasi['hasil_validasi'] ?>" readonly>
                 </div>
                 <button type="submit" class="btn btn-primary">Edit</button>
             </form>
