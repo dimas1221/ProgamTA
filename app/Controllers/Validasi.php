@@ -17,11 +17,25 @@ class Validasi extends BaseController
         // $validasiModel = new ValidasiModel();
 
         //view data validasi mhs
-        $viewvalidasi = $this->validasiModel->findAll();
+        // $viewvalidasi = $this->validasiModel->findAll();
+        // searching
+        $keyword = $this->request->getVar('keyword');
+        if ($keyword) {
+            $datavalidasi = $this->validasiModel->search($keyword);
+        } else {
+            $datavalidasi = $this->validasiModel;
+        }
+        // mendapatkan halaman yang di akses
+        $currentPage = $this->request->getVar('page_viewvalidasi') ? $this->request->getVar('page_viewvalidasi') : 1;
+        $viewvalidasi = $this->validasiModel->paginate(4, 'viewvalidasi');
+        $pager = $this->validasiModel->pager;
+
 
         $data = [
             'title' => 'Hasil Validasi',
-            'viewvalidasi' => $viewvalidasi
+            'viewvalidasi' => $viewvalidasi,
+            'pager' => $pager,
+            'currentPage' => $currentPage
         ];
 
         // $data['viewvalidasi'] = $viewvalidasi->paginate(5, 'viewvalidasi');

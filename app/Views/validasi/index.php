@@ -12,6 +12,14 @@
                     <div class="col">
                         <a href="/validasi/export" class="btn btn-success shadow float-left">Export <i class="bi bi-file-earmark-text-fill"></i></a>
                     </div>
+                    <div class="col">
+                        <form action="" method="post">
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2" name="keyword">
+                                <button class="btn btn-outline-secondary" type="submit" id="button-addon2" name="submit">Search</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
                 <div class="row justify-content-center">
                     <div class="col-12">
@@ -30,7 +38,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php $k = 1; ?>
+                                <?php $k = 1 + (4 * ($currentPage - 1)); ?>
                                 <?php foreach ($viewvalidasi as $vv) : ?>
                                     <tr>
                                         <td><?= $k++; ?></td>
@@ -53,6 +61,7 @@
                                 <?php endforeach; ?>
                             </tbody>
                         </table>
+                        <?= $pager->links('viewvalidasi', 'validasi_pagination'); ?>
                     </div>
                 </div>
             </div>
