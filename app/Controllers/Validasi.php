@@ -27,7 +27,8 @@ class Validasi extends BaseController
         }
         // mendapatkan halaman yang di akses
         $currentPage = $this->request->getVar('page_viewvalidasi') ? $this->request->getVar('page_viewvalidasi') : 1;
-        $viewvalidasi = $this->validasiModel->paginate(4, 'viewvalidasi');
+        // $viewvalidasi = $this->validasiModel->paginate(4, 'viewvalidasi');
+        $viewvalidasi = $datavalidasi->paginate(4, 'viewvalidasi');
         $pager = $this->validasiModel->pager;
 
 
@@ -128,27 +129,27 @@ class Validasi extends BaseController
         echo view('validasi/excel', $data);
     }
 
-    public function delete($id_validasi)
+    public function delete($id)
     {
-        $this->validasiModel->delete($id_validasi);
+        $this->validasiModel->delete($id);
 
         return redirect()->to('/validasi/index');
     }
 
-    public function edit($id_validasi)
+    public function edit($id)
     {
         $data = [
             'title' => 'Form ubah data',
             'validation' => \Config\Services::validation(),
-            'viewvalidasi' => $this->validasiModel->find($id_validasi)
+            'viewvalidasi' => $this->validasiModel->find($id)
         ];
         return view('validasi/edit', $data);
     }
 
-    public function updated($id_validasi)
+    public function updated($id)
     {
         $this->validasiModel->save([
-            'id_validasi' => $id_validasi,
+            'id' => $id,
             'nama_mahasiswa' => $this->request->getVar('nama_mahasiswa'),
             'nim_mahasiswa' => $this->request->getVar('nim_mahasiswa'),
             'prodi' => $this->request->getVar('prodi'),

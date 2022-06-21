@@ -7,7 +7,7 @@
             <h1>Edit Hasil Validasi</h1>
         </div>
         <div class="section-body">
-            <form action="validasi/updated/<?= $viewvalidasi['id_validasi']; ?>" method="post">
+            <form action="/validasi/updated/<?= $viewvalidasi['id']; ?>" method="post">
                 <?= csrf_field(); ?>
                 <div class="mb-3">
                     <label for="exampleInputName" class="form-label">Nama</label>
@@ -19,7 +19,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputProdi" class="form-label">Prodi</label>
-                    <input type="text" name="prodi" class="form-control" id="exampleInputProdi" aria-describedby="emailHelp" value="Informatika" readonly>
+                    <input type="text" name="prodi" class="form-control" id="exampleInputProdi" aria-describedby="emailHelp" value="<?= $viewvalidasi['prodi'] ?>" readonly>
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputStatus" class="form-label">Status</label>

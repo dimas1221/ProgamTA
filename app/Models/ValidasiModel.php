@@ -8,7 +8,7 @@ class ValidasiModel extends Model
 {
     // membuat model tb_mahasiswa
     protected $table = 'tb_hasil_validasi';
-    protected $primaryKey = 'id_validasi';
+    protected $primaryKey = 'id';
 
 
     protected $allowedFields = ['nama_mahasiswa', 'nim_mahasiswa', 'prodi', 'hasil_validasi'];
