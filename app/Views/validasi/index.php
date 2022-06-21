@@ -25,14 +25,14 @@
                 </div>
                 <div class="row justify-content-center">
                     <div class="col-12">
-                        <table class="table" style="width:180px; table-layout:auto">
-                            <thead>
+                        <table class="table table-striped" style="width:180px; table-layout:auto">
+                            <thead class="bg-light">
                                 <tr>
                                     <th scope="col">No</th>
                                     <th scope="col">Nama</th>
                                     <th scope="col">Nim</th>
-                                    <th scope="col">creted</th>
-                                    <th scope="col">updated</th>
+                                    <th scope="col">created</th>
+                                    <!-- <th scope="col">updated</th> -->
                                     <th scope="col">Prodi</th>
                                     <th scope="col">Status</th>
                                     <th scope="col" colspan="2" style="text-align:center ;">Action</th>
@@ -47,7 +47,7 @@
                                         <td><?= $vv['nama_mahasiswa']; ?></td>
                                         <td><?= $vv['nim_mahasiswa']; ?></td>
                                         <td><?= $vv['created_at']; ?></td>
-                                        <td><?= $vv['updated_at']; ?></td>
+                                        <!-- <td><?= $vv['updated_at']; ?></td> -->
                                         <td><?= $vv['prodi']; ?></td>
                                         <td><?= $vv['hasil_validasi']; ?></td>
                                         <td><a class="btn btn-warning" href="/validasi/edit/ <?= $vv['id']; ?>"><i class="bi bi-pencil-fill"></i></a></td>
